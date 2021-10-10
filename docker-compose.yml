@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  CHANGE_ME:
+    container_name: CHANGE_ME
+    stdin_open: true
+    tty: true
+    build: .
+    ports:
+      - '9001:9001' CHANGE_ME
+    volumes:
+      - ${PWD}/src:/app/src
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1
