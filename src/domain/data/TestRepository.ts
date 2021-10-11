@@ -5,6 +5,6 @@ import { TestEntity } from '../entities';
 @injectable()
 export class TestRepository implements ITestRepository {
   test() {
-    const entity = TestEntity.init();
+    const entity = new TestEntity({ test: 'test' });
   }
 }
