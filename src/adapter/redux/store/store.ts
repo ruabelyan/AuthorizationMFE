@@ -1,10 +1,17 @@
-import { applyMiddleware, createStore } from 'redux';
+import { DiFiles } from '@/di';
+import { applyMiddleware, createStore as reduxCreateStore } from 'redux';
 import rootSaga from '../sagas';
-import middleware, { sagaMiddleware } from './middlewares';
+import getMiddlewares from './middlewares';
 import rootReducer from './rootReducer';
 
-const store = createStore(rootReducer, applyMiddleware(...middleware));
+const createStore = (diFiles: DiFiles[]) => {
+  const { middlewares, sagaMiddleware } = getMiddlewares(diFiles);
 
-sagaMiddleware.run(rootSaga);
+  const store = reduxCreateStore(rootReducer, applyMiddleware(...middlewares));
 
-export default store;
+  sagaMiddleware.run(rootSaga);
+
+  return store;
+};
+
+export default createStore;

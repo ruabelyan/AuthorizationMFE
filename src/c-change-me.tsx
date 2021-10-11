@@ -1,22 +1,8 @@
-import React, { FC, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { connect, Provider } from 'react-redux';
 import singleSpaReact from 'single-spa-react';
-import { testActions } from './adapter/redux/actions';
-import store from './adapter/redux/store';
 import './index';
-
-const Comp: FC<{ onMount: () => void }> = ({ onMount }) => {
-  useEffect(() => {
-    onMount();
-  }, []);
-
-  return <div>Asd</div>;
-};
-
-const ReduxComp = connect(null, {
-  onMount: testActions.test
-})(Comp);
+import App from './view';
 
 const lifecycles = singleSpaReact({
   React,
@@ -26,11 +12,7 @@ const lifecycles = singleSpaReact({
     // Customize the root error boundary for your microfrontend here.
     return null;
   },
-  rootComponent: () => (
-    <Provider store={store}>
-      <ReduxComp />
-    </Provider>
-  )
+  rootComponent: App
 });
 
 export const { bootstrap, mount, unmount } = lifecycles;

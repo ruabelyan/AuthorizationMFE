@@ -6,8 +6,14 @@ export type DiConfig = {
   moduleName: string;
 };
 
+export type DiFiles = {
+  module: any;
+  name: string;
+};
+
 export class DiContainer {
   public diContainer: Container;
+  public diFiles: DiFiles[] = [];
 
   public configure = async (diConfigs: DiConfig[]) => {
     this.diContainer = new Container({
@@ -19,6 +25,8 @@ export class DiContainer {
 
       this.diContainer.bind(`I${moduleName}`).to(module[moduleName]);
       this.diContainer.bind(moduleName).to(module[moduleName]);
+
+      this.diFiles.push({ name: moduleName, module: module[moduleName] });
     });
   };
 }
