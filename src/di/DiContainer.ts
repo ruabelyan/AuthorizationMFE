@@ -1,4 +1,4 @@
-import { asyncForeach } from '@atom/shared';
+import { asyncForeach } from 'atom-shared';
 import { Container } from 'inversify';
 
 export type DiConfig = {
@@ -26,7 +26,7 @@ export class DiContainer {
       this.diContainer.bind(`I${moduleName}`).to(module[moduleName]);
       this.diContainer.bind(moduleName).to(module[moduleName]);
 
-      this.diFiles.push({ name: moduleName, module: module[moduleName] });
+      this.diFiles.push({ name: moduleName, module: module });
     });
   };
 }

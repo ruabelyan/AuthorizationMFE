@@ -1,1 +1,1 @@
-export * from './ITestRepository';
+export * from './IAuthRepository';

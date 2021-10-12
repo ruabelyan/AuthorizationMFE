@@ -9,6 +9,7 @@ type GetMiddlewaresReturnType = {
 };
 
 const getMiddlewares = (diFiles: DiFiles[]): GetMiddlewaresReturnType => {
+  console.log(diFiles);
   const sagaMiddleware = createSagaMiddleware({
     context: diFiles.reduce(
       (acc, { module, name }) => ({

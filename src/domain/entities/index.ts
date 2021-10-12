@@ -1,1 +1,1 @@
-export * from './TestEntity';
+export * from './UserEntity';

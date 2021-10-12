@@ -20,8 +20,8 @@ const createDiConfig = (directoryPath) => {
 
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
-    orgName: 'c',
-    projectName: 'change-me',
+    orgName: 'atom',
+    projectName: 'authorization',
     webpackConfigEnv,
     argv
   });
@@ -32,11 +32,14 @@ module.exports = (webpackConfigEnv, argv) => {
   const repositoryFiles = createDiConfig('domain/data');
 
   return merge(defaultConfig, configureSharedWebpack(isDevelopment), {
+    output: {
+      publicPath: '/'
+    },
     devServer: {
-      port: webpackConfigEnv.port || 9001, // CHANGE_ME
+      port: webpackConfigEnv.port || 9001,
       host: '0.0.0.0' // To accept connections from outside container
     },
-    externals: !isDevelopment ? ['react', 'react-dom', /^@atom/] : [],
+    externals: !isDevelopment ? ['react', 'react-dom'] : [],
     plugins: [
       new DefinePlugin({
         diFiles: JSON.stringify([...useCaseFiles, ...repositoryFiles])
