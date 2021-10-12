@@ -51,4 +51,4 @@ jobs:
 
       - name: Update importmap
         run: |
-          curl -d '{ "service":"@atom/authorization","url":"http://52.154.70.180:9000/atom-authorization.js?v=${{ github.sha }}" }' -X PATCH http://52.149.205.195:8000/services\?env=dev\&skip_url_check -H "Accept:application/json" -H "Content-Type:application/json"
+          curl -d '{ "service":"@atom/authorization","url":"http://40.76.149.218:9001/atom-authorization.js?v=${{ github.sha }}" }' -X PATCH http://52.149.205.195:8000/services\?env=dev\&skip_url_check -H "Accept:application/json" -H "Content-Type:application/json"
