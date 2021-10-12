@@ -1,12 +1,12 @@
 version: '3.9'
 services:
-  CHANGE_ME:
-    container_name: CHANGE_ME
+  atom-authorization:
+    container_name: atom-authorization
     stdin_open: true
     tty: true
     build: .
     ports:
-      - '9001:9001' CHANGE_ME
+      - '9001:9001'
     volumes:
       - ${PWD}/src:/app/src
     environment:
