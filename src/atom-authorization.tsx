@@ -7,7 +7,7 @@ import App from './view';
 const lifecycles = singleSpaReact({
   React,
   ReactDOM,
-  // domElementGetter: () => document.getElementById('application:@platform/user-management'),
+  domElementGetter: () => document.getElementById('application:@atom/authorization'),
   errorBoundary(err, info, props) {
     // Customize the root error boundary for your microfrontend here.
     return null;
