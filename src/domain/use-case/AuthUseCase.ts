@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
 import { IAuthRepository } from '../boundaries';
-import { LoginRequestModel } from '../types';
+import { LoginRequestModel } from '../models';
 import { User } from './../entities';
 
 @injectable()

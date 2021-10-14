@@ -1,7 +1,7 @@
 import { injectable } from 'inversify';
 import { IAuthRepository } from '../boundaries';
 import { UserEntity } from '../entities';
-import { LoginRequestModel } from '../types';
+import { LoginRequestModel } from '../models';
 
 @injectable()
 export class AuthRepository implements IAuthRepository {
