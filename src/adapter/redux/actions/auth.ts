@@ -6,7 +6,7 @@ const MODULE_NAME = 'AUTH';
 export const authTypes = {
   LOGIN_REQUEST: `${MODULE_NAME}/LOGIN_REQUEST`,
   CHANGE_LOGIN_LOADING: `${MODULE_NAME}/CHANGE_LOGIN_LOADING`
-}as const
+} as const;
 
 export const authActions = {
   loginRequest: (loginRequestModel: LoginRequestModel) => ({

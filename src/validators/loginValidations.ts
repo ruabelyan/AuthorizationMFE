@@ -2,10 +2,7 @@ import { LoginViewModel } from '@/models/LoginViewModel';
 import { object, SchemaOf, string } from 'yup';
 
 export const loginValidationSchema: SchemaOf<LoginViewModel> = object({
-  username: string()
-    .required('Required field')
-    .max(40, 'The maximum length is 40')
-    .min(6, 'The minimum symbols is 7'),
+  username: string().required('Required field').max(40, 'The maximum length is 40').min(6, 'The minimum symbols is 7'),
   password: string()
     // .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, 'Incorrect parameters')
     .min(8, 'The minimum length is 8!')
