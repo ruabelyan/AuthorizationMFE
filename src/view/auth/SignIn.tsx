@@ -1,37 +1,43 @@
 import { LoginViewModel } from '@/models/LoginViewModel';
 import { loginValidationSchema } from '@/validators/loginValidations';
 import { SignIn as SignInComponent } from '@atom/design-system';
-import { FastField, Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import { FC, useCallback, useMemo } from 'react';
 import { Spinner } from '../spiner';
 
 export type SignInActions = {
   onSubmit: (loginViewModel: LoginViewModel) => void;
+  clearErrorMessage: () => void;
 };
 
 export type SignInState = {
   isLoading: boolean;
+  loginErrorMessage: string;
 };
 
 export type SignInProps = SignInActions & SignInState;
 
-const SignIn: FC<SignInProps> = ({ onSubmit, isLoading }) => {
-  const inputRenderer = useCallback((InputComponent, name) => {
-    return (
-      <FastField name={name}>
-        {({ field, meta }) => {
-          return (
-            <InputComponent
-              {...field}
-              name={name}
-              explanation={meta.touched && meta.error}
-              color={meta.error && meta.touched ? 'danger' : ''}
-            />
-          );
-        }}
-      </FastField>
-    );
-  }, []);
+const SignIn: FC<SignInProps> = ({ onSubmit, isLoading, loginErrorMessage, clearErrorMessage }) => {
+  const inputRenderer = useCallback(
+    (InputComponent, name) => {
+      return (
+        <Field name={name}>
+          {({ field, meta }) => {
+            return (
+              <InputComponent
+                {...field}
+                onFocus={clearErrorMessage}
+                name={name}
+                explanation={meta.touched && meta.error}
+                color={meta.error && meta.touched ? 'danger' : ''}
+              />
+            );
+          }}
+        </Field>
+      );
+    },
+    []
+  );
 
   const signInFormInitialValues = useMemo(
     () => ({
@@ -41,9 +47,10 @@ const SignIn: FC<SignInProps> = ({ onSubmit, isLoading }) => {
     []
   );
 
-  if (isLoading) return <Spinner />;
-  else
-    return (
+  return (
+    <>
+      {isLoading && <Spinner />}
+
       <Formik initialValues={signInFormInitialValues} validationSchema={loginValidationSchema} onSubmit={onSubmit}>
         {() => (
           <Form noValidate>
@@ -53,12 +60,15 @@ const SignIn: FC<SignInProps> = ({ onSubmit, isLoading }) => {
               title='Sign In'
               subtitle='Login to manage your account'
               buttonText='Login'
+              // @ts-ignore
+              loginErrorMessage={loginErrorMessage}
               renderInputs={inputRenderer}
             />
           </Form>
         )}
       </Formik>
-    );
+    </>
+  );
 };
 
 export default SignIn;

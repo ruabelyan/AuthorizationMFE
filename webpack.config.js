@@ -39,7 +39,7 @@ module.exports = (webpackConfigEnv, argv) => {
       port: webpackConfigEnv.port || 9001,
       host: '0.0.0.0' // To accept connections from outside container
     },
-    externals: !isDevelopment ? ['react', 'react-dom'] : [],
+    externals: !isDevelopment ? ['react', 'react-dom', 'single-spa'] : [],
     plugins: [
       new DefinePlugin({
         diFiles: JSON.stringify([...useCaseFiles, ...repositoryFiles])
