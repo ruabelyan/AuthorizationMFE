@@ -62,7 +62,7 @@ const configureSharedWebpack = (isDevelopment) => ({
   resolve: {
     alias: configureAliases()
   },
-  watchOptions: configureWatchOptions()
+  // watchOptions: configureWatchOptions()
 });
 
 module.exports = {
