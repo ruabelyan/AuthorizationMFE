@@ -1,4 +1,4 @@
-import { asyncForeach } from 'atom-shared';
+import { asyncForeach } from '@atom/common';
 import { Container } from 'inversify';
 
 export type DiConfig = {
