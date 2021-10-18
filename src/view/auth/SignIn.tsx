@@ -18,26 +18,23 @@ export type SignInState = {
 export type SignInProps = SignInActions & SignInState;
 
 const SignIn: FC<SignInProps> = ({ onSubmit, isLoading, loginErrorMessage, clearErrorMessage }) => {
-  const inputRenderer = useCallback(
-    (InputComponent, name) => {
-      return (
-        <Field name={name}>
-          {({ field, meta }) => {
-            return (
-              <InputComponent
-                {...field}
-                onFocus={clearErrorMessage}
-                name={name}
-                explanation={meta.touched && meta.error}
-                color={meta.error && meta.touched ? 'danger' : ''}
-              />
-            );
-          }}
-        </Field>
-      );
-    },
-    []
-  );
+  const inputRenderer = useCallback((InputComponent, name) => {
+    return (
+      <Field name={name}>
+        {({ field, meta }) => {
+          return (
+            <InputComponent
+              {...field}
+              onFocus={clearErrorMessage}
+              name={name}
+              explanation={meta.touched && meta.error}
+              color={meta.error && meta.touched ? 'danger' : ''}
+            />
+          );
+        }}
+      </Field>
+    );
+  }, []);
 
   const signInFormInitialValues = useMemo(
     () => ({
