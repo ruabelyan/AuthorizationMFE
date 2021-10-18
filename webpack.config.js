@@ -6,6 +6,8 @@ const singleSpaDefaults = require('webpack-config-single-spa-react-ts');
 const { configureSharedWebpack } = require('./webpack.shared');
 const { DefinePlugin } = require('webpack');
 
+const packageJson = require('./package.json');
+
 const createDiConfig = (directoryPath) => {
   const folderPath = path.resolve(`./src/${directoryPath}`);
 
@@ -39,7 +41,7 @@ module.exports = (webpackConfigEnv, argv) => {
       port: webpackConfigEnv.port || 9001,
       host: '0.0.0.0' // To accept connections from outside container
     },
-    externals: !isDevelopment ? ['react', 'react-dom', 'single-spa'] : [],
+    externals: [/^@atom/, ...Object.keys(packageJson.dependencies)],
     plugins: [
       new DefinePlugin({
         diFiles: JSON.stringify([...useCaseFiles, ...repositoryFiles])
