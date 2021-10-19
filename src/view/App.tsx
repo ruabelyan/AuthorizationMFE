@@ -1,5 +1,7 @@
-import createStore from '@/adapter/redux/store/store';
+import createStore from '@/adapter/redux/store';
 import { DiContainer } from '@/di';
+// @ts-ignore
+import { AtomCommonProvider } from '@atom/common';
 import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import { SignInContainer } from './auth';
@@ -26,7 +28,9 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <SignInContainer />
+      <AtomCommonProvider>
+        <SignInContainer />
+      </AtomCommonProvider>
     </Provider>
   );
 };

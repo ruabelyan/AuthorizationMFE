@@ -7,7 +7,7 @@
       "@/*": ["*"]
     },
     "target": "ESNext",
-    "module": "esnext",
+    "module": "System",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "types": ["reflect-metadata"],
