@@ -1,10 +1,8 @@
 import { LoginViewModel } from '@/models/LoginViewModel';
 import { loginValidationSchema } from '@/validators/loginValidations';
-// @ts-ignore
-import { useTranslation } from '@atom/common';
 import { SignIn as SignInComponent } from '@atom/design-system';
 import { Field, Form, Formik } from 'formik';
-import { FC, useCallback, useEffect, useMemo } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import { Spinner } from '../spiner';
 
 export type SignInActions = {
@@ -20,9 +18,6 @@ export type SignInState = {
 export type SignInProps = SignInActions & SignInState;
 
 const SignIn: FC<SignInProps> = ({ onSubmit, isLoading, loginErrorMessage, clearErrorMessage }) => {
-  console.log(useTranslation);
-  const translation = useTranslation();
-
   const inputRenderer = useCallback((InputComponent, name) => {
     return (
       <Field name={name}>
@@ -49,14 +44,6 @@ const SignIn: FC<SignInProps> = ({ onSubmit, isLoading, loginErrorMessage, clear
     []
   );
 
-  useEffect(() => {
-    setTimeout(() => {
-      translation.changeLanguage('en');
-    }, 5000);
-  }, []);
-
-  translation.init('ru');
-
   return (
     <>
       {isLoading && <Spinner />}
@@ -65,9 +52,9 @@ const SignIn: FC<SignInProps> = ({ onSubmit, isLoading, loginErrorMessage, clear
         {() => (
           <Form noValidate>
             <SignInComponent
-              usernameInputLabel={translation.get('save')}
+              usernameInputLabel='username'
               passwordInputLabel='password'
-              title={translation.get('save')}
+              title='Log In'
               subtitle='Login to manage your account'
               buttonText='Login'
               // @ts-ignore
