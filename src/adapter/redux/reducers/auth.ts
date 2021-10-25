@@ -1,9 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  isLoading: false,
-  loginErrorMessage: ''
-};
+const initialState = {};
 
 export type AuthState = typeof initialState;
 

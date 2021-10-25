@@ -1,5 +1,5 @@
-import { LoginViewModel } from '@/models/LoginViewModel';
-import { loginValidationSchema } from '@/validators/loginValidations';
+import { LoginViewModel } from '@/models';
+import { loginValidationSchema } from '@/validators';
 import { SignIn as SignInComponent } from '@atom/design-system';
 import { Field, Form, Formik } from 'formik';
 import { FC, useCallback, useMemo } from 'react';
