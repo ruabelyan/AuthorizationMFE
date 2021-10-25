@@ -7,7 +7,8 @@ export class AuthUseCase {
   @inject('IAuthRepository')
   private readonly authRepository: IAuthRepository;
 
-  login = async (loginRequestModel: LoginRequestModel): Promise<boolean> => {
-    return this.authRepository.login(loginRequestModel);
-  };
+  login = async (loginRequestModel: LoginRequestModel): Promise<boolean> =>
+    new Promise((resolve) => {
+      setTimeout(() => resolve(this.authRepository.login(loginRequestModel)), 3000);
+    });
 }

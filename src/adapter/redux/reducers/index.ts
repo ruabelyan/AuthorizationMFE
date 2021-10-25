@@ -1,1 +1,1 @@
-export * from './auth';
+export { authReducer as auth } from './auth';

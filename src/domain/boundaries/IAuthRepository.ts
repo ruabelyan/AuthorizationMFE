@@ -1,3 +1,4 @@
+import { LoginRequestModel } from '../models';
 export interface IAuthRepository {
-  login(loginRequestModel: any): Promise<boolean>;
+  login(loginRequestModel: LoginRequestModel): Promise<boolean>;
 }

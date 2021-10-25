@@ -1,15 +1,16 @@
-import { DiFiles } from '@/di';
-import { applyMiddleware, createStore as reduxCreateStore } from 'redux';
-import rootSaga from '../sagas';
-import getMiddlewares from './middlewares';
+import { configureStore } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
+import * as apiReducers from '../api';
 import rootReducer from './rootReducer';
 
-const createStore = (diFiles: DiFiles[]) => {
-  const { middlewares, sagaMiddleware } = getMiddlewares(diFiles);
-
-  const store = reduxCreateStore(rootReducer, applyMiddleware(...middlewares));
-
-  sagaMiddleware.run(rootSaga);
+const createStore = () => {
+  const store = configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      [...getDefaultMiddleware(), ...Object.values(apiReducers).map((api) => api.middleware), logger] as ReturnType<
+        typeof getDefaultMiddleware
+      >
+  });
 
   return store;
 };

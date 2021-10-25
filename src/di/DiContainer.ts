@@ -30,3 +30,5 @@ export class DiContainer {
     });
   };
 }
+
+export const containerInstance = new DiContainer();

@@ -1,17 +1,19 @@
-import { authActions } from '@/adapter/redux/actions';
-import { selectLoginLoading } from '@/adapter/redux/selectors';
-import { ReduxStore } from '@/adapter/redux/types';
-import { connect } from 'react-redux';
-import { selectLoginErrorMessage } from './../../adapter/redux/selectors/auth';
-import SignIn, { SignInActions, SignInState } from './SignIn';
+import { authApi } from '@/adapter/redux/api';
+import { redirectToURL } from '@atom/common';
+import { QueryStatus } from '@reduxjs/toolkit/dist/query';
+import { useEffect } from 'react';
+import SignIn from './SignIn';
 
-export default connect<SignInState, SignInActions>(
-  (state: ReduxStore) => ({
-    isLoading: selectLoginLoading(state),
-    loginErrorMessage: selectLoginErrorMessage(state)
-  }),
-  {
-    clearErrorMessage: () => authActions.setLoginError(null),
-    onSubmit: authActions.loginRequest
-  }
-)(SignIn);
+const SignInContainer = () => {
+  const [login, { error, isLoading, status }] = authApi.useLoginMutation();
+
+  useEffect(() => {
+    if (status === QueryStatus.fulfilled) redirectToURL('/');
+  }, [status]);
+
+  return (
+    <SignIn onSubmit={login} loginErrorMessage={error as string} isLoading={isLoading} clearErrorMessage={() => {}} />
+  );
+};
+
+export default SignInContainer;

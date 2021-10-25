@@ -1,6 +1,5 @@
 import createStore from '@/adapter/redux/store';
-import { DiContainer } from '@/di';
-// @ts-ignore
+import { containerInstance } from '@/di';
 import { AtomCommonProvider } from '@atom/common';
 import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
@@ -10,18 +9,7 @@ const App = () => {
   const [store, setStore] = useState(null);
 
   useEffect(() => {
-    const containerInstance = new DiContainer();
-
-    containerInstance.configure(diFiles).then(() => {
-      setStore(
-        createStore(
-          containerInstance.diFiles.map(({ name }) => ({
-            module: containerInstance.diContainer.get(name),
-            name
-          }))
-        )
-      );
-    });
+    containerInstance.configure(diFiles).then(() => setStore(createStore()));
   }, []);
 
   if (!store) return null;
