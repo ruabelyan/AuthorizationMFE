@@ -9,6 +9,6 @@ export class AuthUseCase {
 
   login = async (loginRequestModel: LoginRequestModel): Promise<boolean> =>
     new Promise((resolve) => {
-      setTimeout(() => resolve(this.authRepository.login(loginRequestModel)), 3000);
+      setTimeout(() => resolve(this.authRepository.login(loginRequestModel)), 1500);
     });
 }

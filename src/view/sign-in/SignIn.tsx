@@ -1,8 +1,9 @@
 import { LoginViewModel } from '@/models';
-import { loginValidationSchema } from '@/validators';
+import { useTranslation } from '@atom/common';
 import { SignIn as SignInComponent } from '@atom/design-system';
 import { Field, Form, Formik } from 'formik';
 import { FC, useCallback, useMemo } from 'react';
+import { SchemaOf } from 'yup';
 import { Spinner } from '../spiner';
 
 export type SignInActions = {
@@ -12,12 +13,21 @@ export type SignInActions = {
 
 export type SignInState = {
   isLoading: boolean;
-  loginErrorMessage: string;
+  loginErrorMessageName: string;
+  validationSchema: SchemaOf<LoginViewModel> | null;
 };
 
 export type SignInProps = SignInActions & SignInState;
 
-const SignIn: FC<SignInProps> = ({ onSubmit, isLoading, loginErrorMessage, clearErrorMessage }) => {
+const SignIn: FC<SignInProps> = ({
+  onSubmit,
+  isLoading,
+  loginErrorMessageName,
+  clearErrorMessage,
+  validationSchema
+}) => {
+  const t = useTranslation();
+
   const inputRenderer = useCallback((InputComponent, name) => {
     return (
       <Field name={name}>
@@ -48,17 +58,22 @@ const SignIn: FC<SignInProps> = ({ onSubmit, isLoading, loginErrorMessage, clear
     <>
       {isLoading && <Spinner />}
 
-      <Formik initialValues={signInFormInitialValues} validationSchema={loginValidationSchema} onSubmit={onSubmit}>
+      <Formik
+        enableReinitialize
+        initialValues={signInFormInitialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}>
         {() => (
           <Form noValidate>
             <SignInComponent
-              usernameInputLabel='username'
-              passwordInputLabel='password'
-              title='Log In'
-              subtitle='Login to manage your account'
-              buttonText='Login'
-              // @ts-ignore
-              loginErrorMessage={loginErrorMessage}
+              usernameInputName='username'
+              passwordInputName='password'
+              usernameInputLabel={t.get('login.username')}
+              passwordInputLabel={t.get('login.password')}
+              title={t.get('login.title')}
+              subtitle={t.get('login.subtitle')}
+              buttonText={t.get('login.buttonText')}
+              loginErrorMessage={loginErrorMessageName && t.get(`login.${loginErrorMessageName}`)}
               renderInputs={inputRenderer}
             />
           </Form>

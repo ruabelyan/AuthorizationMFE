@@ -3,7 +3,7 @@ import { containerInstance } from '@/di';
 import { AtomCommonProvider } from '@atom/common';
 import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
-import { SignInContainer } from './auth';
+import { SignInContainer } from './sign-in';
 
 const App = () => {
   const [store, setStore] = useState(null);
@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <AtomCommonProvider>
+      <AtomCommonProvider initializeLanguage>
         <SignInContainer />
       </AtomCommonProvider>
     </Provider>

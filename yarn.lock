@@ -2,26 +2,25 @@
 # yarn lockfile v1
 
 
-"@atom/common@^1.4.1":
-  version "1.4.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/@atom/common/-/common-1.4.1.tgz#d90e9a3650f304bc9c502043bee584c76a26b99c"
-  integrity sha1-2Q6aNlDzBLycUCBDvuWEx2omuZw=
+"@atom/common@^1.9.0":
+  version "1.9.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/@atom/common/-/common-1.9.0.tgz#ebea96b195d9cbfc55144fc6501ff3878d3c30dd"
+  integrity sha1-6+qWsZXZy/xVFE/GUB/zh408MN0=
   dependencies:
     axios "^0.23.0"
     react "^17.0.2"
     rxjs "^7.4.0"
     single-spa "^5.9.3"
 
-"@atom/design-system@1.0.2":
-  version "1.0.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/@atom/design-system/-/design-system-1.0.2.tgz#6b8d086591462e29159a70b81a16b9dc36c7d104"
-  integrity sha1-a40IZZFGLikVmnC4Gha53DbH0QQ=
+"@atom/design-system@^1.4.3":
+  version "1.4.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/@atom/design-system/-/design-system-1.4.3.tgz#9a8293b49900dc7cf8162fae4d8a040a15db26dd"
+  integrity sha1-moKTtJkA3Hz4Fi+uTYoEChXbJt0=
   dependencies:
-    "@my-ui/core" "^2.3.3"
+    "@my-ui/core" "^2.7.3"
     classnames "^2.3.1"
     react "^17.0.2"
     react-dom "^17.0.2"
-    single-spa-react "^4.2.0"
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
@@ -1344,22 +1343,21 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@my-ui/core@^2.3.3":
-  version "2.3.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.3.3.tgz#73d879b0809b61e23f96d3bb2aed0609a115e9d4"
-  integrity sha1-c9h5sICbYeI/ltO7Ku0GCaEV6dQ=
+"@my-ui/core@^2.7.3":
+  version "2.7.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.7.3.tgz#eab15e86fe8ae2897457acfa37e8f9e2b9bf28e3"
+  integrity sha1-6rFehv6K4ol0V6z6N+j54rm/KOM=
   dependencies:
-    "@my-ui/react-datepicker" "1.1.0"
-    "@my-ui/react-select" "1.1.2"
-    "@my-ui/react-table" "^1.0.0"
+    "@my-ui/react-datepicker" "^1.3.0"
+    "@my-ui/react-select" "1.1.6"
+    "@my-ui/react-table" "1.3.0"
     classnames "^2.3.1"
     react-jss "^10.8.0"
-    single-spa-react "^4.2.0"
 
-"@my-ui/react-datepicker@1.1.0":
-  version "1.1.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-datepicker/-/react-datepicker-1.1.0.tgz#6b08c6b3988346e0dcc07ecd436561eef3a5833b"
-  integrity sha1-awjGs5iDRuDcwH7NQ2Vh7vOlgzs=
+"@my-ui/react-datepicker@^1.3.0":
+  version "1.3.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-datepicker/-/react-datepicker-1.3.0.tgz#0b86e7983de45aedeb5b45711fac301d8a2bdf79"
+  integrity sha1-C4bnmD3kWu3rW0VxH6wwHYor33k=
   dependencies:
     "@popperjs/core" "^2.9.2"
     classnames "^2.2.6"
@@ -1368,10 +1366,10 @@
     react-onclickoutside "^6.10.0"
     react-popper "^2.2.5"
 
-"@my-ui/react-select@1.1.2":
-  version "1.1.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.2.tgz#eadbf12fa5bea620eb21dc31a1de1ee58df5ed07"
-  integrity sha1-6tvxL6W+piDrIdwxod4e5Y317Qc=
+"@my-ui/react-select@1.1.6":
+  version "1.1.6"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.6.tgz#cb2caf2ade8e96deaf45198ba73d0387a43d1f42"
+  integrity sha1-yyyvKt6Olt6vRRmLpz0Dh6Q9H0I=
   dependencies:
     "@babel/runtime" "^7.12.0"
     "@emotion/cache" "^11.4.0"
@@ -1381,10 +1379,10 @@
     prop-types "^15.6.0"
     react-transition-group "^4.3.0"
 
-"@my-ui/react-table@^1.0.0":
-  version "1.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-table/-/react-table-1.0.0.tgz#c1f31ebb04bd2535ef0c59a438417e85bc60518b"
-  integrity sha1-wfMeuwS9JTXvDFmkOEF+hbxgUYs=
+"@my-ui/react-table@1.3.0":
+  version "1.3.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-table/-/react-table-1.3.0.tgz#b1746c61b797781e45fb7bcc446949fbe71bcd41"
+  integrity sha1-sXRsYbeXeB5F+3vMRGlJ++cbzUE=
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -7190,7 +7188,7 @@ signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.5.tgz#9e3e8cc0c75a99472b44321033a7702e7738252f"
   integrity sha512-KWcOiKeQj6ZyXx7zq4YxSMgHRlod4czeBQZrPb8OKcohcqAXShm7E20kEMle9WBt26hFcAf0qLOcp5zmY7kOqQ==
 
-single-spa-react@^4.2.0, single-spa-react@^4.4.0:
+single-spa-react@^4.4.0:
   version "4.4.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/single-spa-react/-/single-spa-react-4.4.0.tgz#c28ccc0531d752745270bc1bb69126ba3d5686c1"
   integrity sha1-wozMBTHXUnRScLwbtpEmuj1WhsE=

@@ -1,1 +1,1 @@
-export * from './loginValidationSchema';
+export * from './getLoginValidationSchema';
