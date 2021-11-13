@@ -2,7 +2,8 @@ import { LoginViewModel } from '@/models';
 import { useTranslation } from '@atom/common';
 import { SignIn as SignInComponent } from '@atom/design-system';
 import { Field, Form, Formik } from 'formik';
-import { FC, useCallback, useMemo } from 'react';
+import { UserManager, UserManagerSettings } from 'oidc-client';
+import { FC, useCallback, useEffect, useMemo } from 'react';
 import { SchemaOf } from 'yup';
 import { Spinner } from '../spiner';
 
@@ -53,6 +54,22 @@ const SignIn: FC<SignInProps> = ({
     }),
     []
   );
+
+  useEffect(() => {
+    const userManagerSettings: UserManagerSettings = {
+      client_id: 'spa',
+      redirect_uri: 'http://localhost:9000/login',
+      response_type: 'code',
+      scope: 'openid profile',
+      authority: 'https://localhost:5002/',
+      post_logout_redirect_uri: 'http://localhost:5002/signout-oidc'
+    };
+
+    const userManager = new UserManager(userManagerSettings);
+
+    // userManager.signinRedirect();
+    userManager.getUser().then(console.log).catch(console.log);
+  }, []);
 
   return (
     <>
