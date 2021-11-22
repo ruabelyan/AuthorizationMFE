@@ -1,4 +1,4 @@
-import { asyncForeach } from '@atom/common';
+import { asyncForeach, enviromentService, HttpService } from '@atom/common';
 import { Container } from 'inversify';
 
 export type DiConfig = {
@@ -19,6 +19,14 @@ export class DiContainer {
     this.diContainer = new Container({
       defaultScope: 'Singleton'
     });
+
+    this.diContainer.bind('IHttpService').toDynamicValue(
+      () =>
+        new HttpService({
+          baseURL: enviromentService.get('identityServerApiUrl') + '/api',
+          withCredentials: true
+        })
+    );
 
     await asyncForeach(diConfigs, async ({ moduleName, modulePath }) => {
       const module = await import(`../${modulePath}`);

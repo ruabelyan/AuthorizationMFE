@@ -12,6 +12,12 @@ export const authApi = createApi({
         methodName: 'login',
         methodArguments: [loginRequestModel]
       })
+    }),
+    logout: build.mutation({
+      query: () => ({
+        methodName: 'logout',
+        methodArguments: []
+      })
     })
   })
 });
