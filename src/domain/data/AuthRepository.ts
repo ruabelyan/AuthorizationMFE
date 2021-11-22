@@ -13,7 +13,7 @@ export class AuthRepository implements IAuthRepository {
     const qs = queryString.parse(window.location.search);
 
     const response = await this.httpService.post<{ isOk: boolean; redirectUrl: string }, {}, {}>({
-      url: '/authenticate',
+      url: '/account/login',
       body: {
         username: loginRequestModel.username,
         password: loginRequestModel.password,
@@ -32,7 +32,7 @@ export class AuthRepository implements IAuthRepository {
 
   logout = async (): Promise<boolean> => {
     await this.httpService.get({
-      url: '/authenticate/logout'
+      url: '/account/logout'
     });
 
     return true;
