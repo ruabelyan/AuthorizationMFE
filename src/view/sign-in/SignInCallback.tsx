@@ -1,7 +1,7 @@
 import { oidcService } from '@/services';
 import { useEffect } from 'react';
 
-const Callback = () => {
+const SignInCallback = () => {
   useEffect(() => {
     oidcService.signinRedirectCallback();
   }, []);
@@ -9,4 +9,4 @@ const Callback = () => {
   return null;
 };
 
-export default Callback;
+export default SignInCallback;
