@@ -43,8 +43,7 @@ module.exports = (webpackConfigEnv, argv) => {
       hot: false,
       webSocketServer: false
     },
-    // formik, inversify, reflect-metadata, yup
-    externals: [/^@atom/, ...Object.keys(packageJson.dependencies)],
+    externals: [/^@atom/, ...packageJson.externalDeps],
     plugins: [
       new DefinePlugin({
         diFiles: JSON.stringify([...useCaseFiles, ...repositoryFiles])

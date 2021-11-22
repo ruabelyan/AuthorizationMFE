@@ -1,6 +1,6 @@
 import { ROUTES } from '@/view/constants';
 import { enviromentService, Subscribable } from '@atom/common';
-import { User, UserManager, UserManagerSettings } from 'oidc-client';
+import OidcClient, { User, UserManager, UserManagerSettings } from 'oidc-client';
 
 class OidcService extends Subscribable<User> {
   private static userManagerConfig: UserManagerSettings = {
@@ -17,7 +17,7 @@ class OidcService extends Subscribable<User> {
   constructor() {
     super();
 
-    this.userManager = new UserManager(OidcService.userManagerConfig);
+    this.userManager = new OidcClient.UserManager(OidcService.userManagerConfig);
   }
 
   signInRedirect() {

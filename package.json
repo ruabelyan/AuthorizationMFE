@@ -95,5 +95,15 @@
     "single-spa": "^5.9.3",
     "single-spa-react": "^4.4.0",
     "yup": "^0.32.10"
-  }
+  },
+  "externalDeps": [
+    "formik",
+    "oidc-client",
+    "inversify",
+    "query-string",
+    "react-router-dom",
+    "reflect-metadata",
+    "yup",
+    "react-redux"
+  ]
 }

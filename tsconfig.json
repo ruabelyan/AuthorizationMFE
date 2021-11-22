@@ -13,7 +13,8 @@
     "types": ["reflect-metadata"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "allowJs": true
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*", "node_modules/@types"],
   "exclude": ["src/**/*.test*"]
