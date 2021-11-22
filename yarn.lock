@@ -7271,7 +7271,7 @@ react-redux@^7.2.5:
     prop-types "^15.7.2"
     react-is "^16.13.1"
 
-react-router-dom@5:
+react-router-dom@5.3.0:
   version "5.3.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/react-router-dom/-/react-router-dom-5.3.0.tgz#da1bfb535a0e89a712a93b97dd76f47ad1f32363"
   integrity sha1-2hv7U1oOiacSqTuX3Xb0etHzI2M=
