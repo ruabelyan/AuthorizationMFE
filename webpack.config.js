@@ -39,7 +39,9 @@ module.exports = (webpackConfigEnv, argv) => {
     },
     devServer: {
       port: webpackConfigEnv.port || 9001,
-      liveReload: false
+      liveReload: false,
+      hot: false,
+      webSocketServer: false
     },
     // formik, inversify, reflect-metadata, yup
     externals: [/^@atom/],
