@@ -20,7 +20,13 @@ const createDiConfig = (directoryPath) => {
     }));
 };
 
-module.exports = (webpackConfigEnv, argv) => {
+module.exports = () => {
+  const webpackConfigEnv = { WEBPACK_BUNDLE: true, WEBPACK_BUILD: true };
+  const argv = { mode: 'production', env: { WEBPACK_SERVE: true } };
+  // {
+  //   mode: 'production',
+  //   env: { WEBPACK_BUNDLE: true, WEBPACK_BUILD: true }
+  // }
   const defaultConfig = singleSpaDefaults({
     orgName: 'atom',
     projectName: 'authorization',
@@ -38,9 +44,7 @@ module.exports = (webpackConfigEnv, argv) => {
       publicPath: '/'
     },
     devServer: {
-      port: webpackConfigEnv.port || 9001,
-      host: '0.0.0.0', // To accept connections from outside container
-      hot: false
+      port: webpackConfigEnv.port || 9001
     },
     // formik, inversify, reflect-metadata, yup
     externals: [/^@atom/],
