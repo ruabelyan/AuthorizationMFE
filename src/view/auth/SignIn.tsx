@@ -1,10 +1,9 @@
-import { LoginViewModel } from '@/models';
-import { useTranslation } from '@atom/common';
+import { useLoading, useTranslation } from '@atom/common';
 import { SignIn as SignInComponent } from '@atom/design-system';
 import { Field, Form, Formik } from 'formik';
-import { FC, useCallback, useMemo } from 'react';
+import { FC, useCallback, useEffect, useMemo } from 'react';
 import { SchemaOf } from 'yup';
-import { Spinner } from '../spiner';
+import { LoginViewModel } from '../models';
 
 export type SignInActions = {
   onSubmit: (loginViewModel: LoginViewModel) => void;
@@ -14,7 +13,7 @@ export type SignInActions = {
 export type SignInState = {
   isLoading: boolean;
   loginErrorMessageName: string;
-  validationSchema: SchemaOf<LoginViewModel> | null;
+  validationSchema: SchemaOf<Omit<LoginViewModel, 'returnUrl'>> | null;
 };
 
 export type SignInProps = SignInActions & SignInState;
@@ -27,6 +26,8 @@ const SignIn: FC<SignInProps> = ({
   validationSchema
 }) => {
   const t = useTranslation();
+
+  const updateLoading = useLoading();
 
   const inputRenderer = useCallback((InputComponent, name) => {
     return (
@@ -54,10 +55,12 @@ const SignIn: FC<SignInProps> = ({
     []
   );
 
+  useEffect(() => {
+    updateLoading(isLoading);
+  }, [isLoading]);
+
   return (
     <>
-      {isLoading && <Spinner />}
-
       <Formik
         enableReinitialize
         initialValues={signInFormInitialValues}

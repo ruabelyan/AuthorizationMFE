@@ -1,5 +1,6 @@
 import { AutoMap } from '@automapper/classes';
-export class LoginRequestModel {
+
+export class LoginViewModel {
   @AutoMap()
   username: string;
 

@@ -12,14 +12,15 @@
     rxjs "^7.4.0"
     single-spa "^5.9.3"
 
-"@atom/common@^2.1.4":
-  version "2.1.4"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/@atom/common/-/common-2.1.4.tgz#590ad84d3c69eb92e7ca495c0d5152e8943b54c9"
-  integrity sha1-WQrYTTxp65LnyklcDVFS6JQ7VMk=
+"@atom/common@^2.1.5":
+  version "2.1.5"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/@atom/common/-/common-2.1.5.tgz#f1afb984f6cec360b97304686989ac793beed996"
+  integrity sha1-8a+5hPbOw2C5cwRoaYmseTvu2ZY=
   dependencies:
     "@atom/common" "1.9.3"
     axios "^0.23.0"
     formik "^2.2.9"
+    query-string "^7.0.1"
     react "^17.0.2"
     rxjs "^7.4.0"
     single-spa "^5.9.3"
@@ -34,6 +35,16 @@
     classnames "^2.3.1"
     react "^17.0.2"
     react-dom "^17.0.2"
+
+"@automapper/classes@6.3.1":
+  version "6.3.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/@automapper/classes/-/classes-6.3.1.tgz#a5a6a1f874e239ccf52e8428188de49ffc881b85"
+  integrity sha1-paah+HTiOcz1LoQoGI3kn/yIG4U=
+
+"@automapper/core@^7.0.2":
+  version "7.0.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/@automapper/core/-/core-7.0.2.tgz#6da0b7fe35a06ec9cc5755fe1dcd5b95326eb223"
+  integrity sha1-baC3/jWgbsnMV1X+Hc1blTJusiM=
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
@@ -1448,7 +1459,7 @@
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/@popperjs/core/-/core-2.10.2.tgz#0798c03351f0dea1a5a4cabddf26a55a7cbee590"
   integrity sha1-B5jAM1Hw3qGlpMq93yalWny+5ZA=
 
-"@reduxjs/toolkit@^1.6.2":
+"@reduxjs/toolkit@^1.6.1":
   version "1.6.2"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/@reduxjs/toolkit/-/toolkit-1.6.2.tgz#2f2b5365df77dd6697da28fdf44f33501ed9ba37"
   integrity sha1-LytTZd933WaX2ij99E8zUB7Zujc=

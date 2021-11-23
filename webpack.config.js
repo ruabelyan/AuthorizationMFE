@@ -1,24 +1,8 @@
-const path = require('path');
-const fs = require('fs');
-
 const { merge } = require('webpack-merge');
 const singleSpaDefaults = require('webpack-config-single-spa-react-ts');
 const { configureSharedWebpack } = require('./webpack.shared');
-const { DefinePlugin } = require('webpack');
 
 const packageJson = require('./package.json');
-
-const createDiConfig = (directoryPath) => {
-  const folderPath = path.resolve(`./src/${directoryPath}`);
-
-  return fs
-    .readdirSync(folderPath)
-    .filter((fileName) => fileName !== 'index.ts')
-    .map((fileName) => ({
-      moduleName: fileName.split('.ts')[0],
-      modulePath: `${directoryPath}/${fileName.split('.ts')[0]}`
-    }));
-};
 
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
@@ -30,9 +14,6 @@ module.exports = (webpackConfigEnv, argv) => {
 
   const isDevelopment = !webpackConfigEnv.WEBPACK_BUILD;
 
-  const useCaseFiles = createDiConfig('domain/use-case');
-  const repositoryFiles = createDiConfig('domain/data');
-
   return merge(defaultConfig, configureSharedWebpack(isDevelopment), {
     output: {
       publicPath: '/'
@@ -43,11 +24,6 @@ module.exports = (webpackConfigEnv, argv) => {
       hot: false,
       webSocketServer: false
     },
-    externals: [/^@atom/, ...packageJson.externalDeps],
-    plugins: [
-      new DefinePlugin({
-        diFiles: JSON.stringify([...useCaseFiles, ...repositoryFiles])
-      })
-    ]
+    externals: [/^@atom/, ...packageJson.externalDeps]
   });
 };

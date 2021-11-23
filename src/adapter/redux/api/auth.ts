@@ -1,16 +1,17 @@
-import { LoginRequestModel } from '@/domain/models';
+import { DI_CONSTANTS } from '@/di';
 import { AuthUseCase } from '@/domain/use-case';
+import { LoginViewModel } from '@/view/models';
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { createBaseQuery } from '../helpers';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: createBaseQuery<AuthUseCase>({ useCaseName: 'AuthUseCase' }),
+  baseQuery: createBaseQuery<AuthUseCase>({ useCaseName: DI_CONSTANTS.AuthUseCase }),
   endpoints: (build) => ({
     login: build.mutation({
-      query: (loginRequestModel: LoginRequestModel) => ({
+      query: (loginViewModel: LoginViewModel) => ({
         methodName: 'login',
-        methodArguments: [loginRequestModel]
+        methodArguments: [loginViewModel]
       })
     }),
     logout: build.mutation({

@@ -1,5 +1,9 @@
-import { asyncForeach, enviromentService, HttpService } from '@atom/common';
+import { AuthRepository } from '@/data/repositories';
+import { IAuthRepository } from '@/domain/boundaries';
+import { AuthUseCase } from '@/domain/use-case';
+import { enviromentService, HttpService } from '@atom/common';
 import { Container } from 'inversify';
+import { DI_CONSTANTS } from '.';
 
 export type DiConfig = {
   modulePath: string;
@@ -15,7 +19,7 @@ export class DiContainer {
   public diContainer: Container;
   public diFiles: DiFiles[] = [];
 
-  public configure = async (diConfigs: DiConfig[]) => {
+  public configure = () => {
     this.diContainer = new Container({
       defaultScope: 'Singleton'
     });
@@ -28,14 +32,11 @@ export class DiContainer {
         })
     );
 
-    await asyncForeach(diConfigs, async ({ moduleName, modulePath }) => {
-      const module = await import(`../${modulePath}`);
+    // Repositories
+    this.diContainer.bind<IAuthRepository>(DI_CONSTANTS.AuthRepository).to(AuthRepository);
 
-      this.diContainer.bind(`I${moduleName}`).to(module[moduleName]);
-      this.diContainer.bind(moduleName).to(module[moduleName]);
-
-      this.diFiles.push({ name: moduleName, module: module });
-    });
+    // Use cases
+    this.diContainer.bind<IAuthRepository>(DI_CONSTANTS.AuthUseCase).to(AuthUseCase);
   };
 }
 

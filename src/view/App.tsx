@@ -4,14 +4,16 @@ import { AtomCommonProvider } from '@atom/common';
 import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { LogoutCallback, SignInCallback, SignInContainer } from './auth';
 import { ROUTES } from './constants';
-import { LogoutCallback, SignInCallback, SignInContainer } from './sign-in';
 
 const App = () => {
   const [store, setStore] = useState(null);
 
   useEffect(() => {
-    containerInstance.configure(diFiles).then(() => setStore(createStore()));
+    containerInstance.configure();
+
+    setStore(createStore());
   }, []);
 
   if (!store) return null;
