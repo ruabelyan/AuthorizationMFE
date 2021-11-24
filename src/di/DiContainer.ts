@@ -36,7 +36,7 @@ export class DiContainer {
     this.diContainer.bind<IAuthRepository>(DI_CONSTANTS.AuthRepository).to(AuthRepository);
 
     // Use cases
-    this.diContainer.bind<IAuthRepository>(DI_CONSTANTS.AuthUseCase).to(AuthUseCase);
+    this.diContainer.bind(DI_CONSTANTS.AuthUseCase).to(AuthUseCase);
   };
 }
 

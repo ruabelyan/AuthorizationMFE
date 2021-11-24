@@ -15,11 +15,12 @@
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
+    "noUnusedLocals": false,
     "paths": {
       "@/*": ["*"]
     },
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "node_modules/@atom/common"],
   "exclude": ["node_modules"]
 }

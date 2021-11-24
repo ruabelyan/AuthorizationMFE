@@ -1,5 +1,5 @@
 import { IAuthRepository } from '@/domain/boundaries';
-import { LoginRequestModel } from '@/domain/models';
+import { LoginRequestModel, LoginResponseModel } from '@/domain/models';
 import { IHttpService, NotFoundError } from '@atom/common';
 import { inject, injectable } from 'inversify';
 import { API_ROUTES } from '../constants';
@@ -9,9 +9,9 @@ export class AuthRepository implements IAuthRepository {
   @inject('IHttpService')
   private readonly httpService: IHttpService;
 
-  login = async (loginRequestModel: LoginRequestModel): Promise<boolean> => {
+  login = async (loginRequestModel: LoginRequestModel): Promise<LoginResponseModel> => {
     try {
-      const response = await this.httpService.post<{ isOk: boolean; redirectUrl: string }, {}, {}>({
+      const response = await this.httpService.post<LoginResponseModel, {}, {}>({
         url: API_ROUTES.AUTH.LOGIIN,
         body: {
           username: loginRequestModel.username,
@@ -20,9 +20,7 @@ export class AuthRepository implements IAuthRepository {
         }
       });
 
-      if (response.isOk) window.location.replace(response.redirectUrl);
-
-      return true;
+      return response;
     } catch (error) {
       throw new NotFoundError('user-not-found');
     }

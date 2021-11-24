@@ -2,10 +2,11 @@ import { DI_CONSTANTS } from '@/di';
 import { mapper } from '@/mapper';
 import { oidcService } from '@/services';
 import { LoginViewModel } from '@/view/models';
+import { delay } from '@atom/common';
 import { inject, injectable } from 'inversify';
 import { IAuthRepository } from '../boundaries';
+import { DELAY_AFTER_RESPONSE } from '../configs';
 import { LoginRequestModel } from '../models';
-
 @injectable()
 export class AuthUseCase {
   @inject(DI_CONSTANTS.AuthRepository)
@@ -14,7 +15,13 @@ export class AuthUseCase {
   login = async (loginViewModel: LoginViewModel): Promise<boolean> => {
     const loginRequestModel = mapper.map(loginViewModel, LoginRequestModel, LoginViewModel);
 
-    return this.authRepository.login(loginRequestModel);
+    const loginResponseModel = await this.authRepository.login(loginRequestModel);
+
+    await delay(DELAY_AFTER_RESPONSE);
+
+    window.location.replace(loginResponseModel.redirectUrl);
+
+    return true;
   };
 
   logout = async (): Promise<boolean> => {

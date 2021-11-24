@@ -31,13 +31,16 @@ class OidcService extends Subscribable<User> {
   }
 
   getUser() {
-    return this.userManager.getUser().then((user) => {
-      if (!user) this.signInRedirect();
+    return this.userManager
+      .getUser()
+      .then((user) => {
+        if (!user) this.signInRedirect();
 
-      this.publish(user);
+        this.publish(user);
 
-      return user;
-    });
+        return user;
+      })
+      .catch(() => this.signInRedirect());
   }
 
   logOut() {

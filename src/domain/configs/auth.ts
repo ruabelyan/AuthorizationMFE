@@ -1,0 +1,1 @@
+export const DELAY_AFTER_RESPONSE = 700;

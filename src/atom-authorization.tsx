@@ -17,4 +17,5 @@ const lifecycles = singleSpaReact({
 
 export const { bootstrap, mount, unmount } = lifecycles;
 
+export * from './adapter/react-context';
 export * from './services';

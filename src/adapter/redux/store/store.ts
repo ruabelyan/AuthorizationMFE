@@ -1,9 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, EnhancedStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import * as apiReducers from '../api';
 import rootReducer from './rootReducer';
 
-const createStore = () => {
+const createStore = (): EnhancedStore => {
   const store = configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
