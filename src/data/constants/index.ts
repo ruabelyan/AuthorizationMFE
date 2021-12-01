@@ -1,9 +1,9 @@
-export const AUTH_ROUTE = '/Authenticate';
+export const AUTH_ROUTE = '/account';
 
 export const API_ROUTES = {
   AUTH: {
     BASE_ROUTE: AUTH_ROUTE,
-    LOGIIN: AUTH_ROUTE + '/',
+    LOGIIN: AUTH_ROUTE + '/login',
     LOGOUT: AUTH_ROUTE + '/logout'
   }
 };

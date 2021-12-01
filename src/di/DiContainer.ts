@@ -5,19 +5,8 @@ import { enviromentService, HttpService } from '@atom/common';
 import { Container } from 'inversify';
 import { DI_CONSTANTS } from '.';
 
-export type DiConfig = {
-  modulePath: string;
-  moduleName: string;
-};
-
-export type DiFiles = {
-  module: any;
-  name: string;
-};
-
 export class DiContainer {
   public diContainer: Container;
-  public diFiles: DiFiles[] = [];
 
   public configure = () => {
     this.diContainer = new Container({
