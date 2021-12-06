@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <AtomCommonProvider initializeLanguage>
+      <AtomCommonProvider initializeLanguage={true}>
         <SignInContainer />
       </AtomCommonProvider>
     </Provider>
