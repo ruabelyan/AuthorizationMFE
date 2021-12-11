@@ -12,10 +12,10 @@
     rxjs "^7.4.0"
     single-spa "^5.9.3"
 
-"@atom/common@^2.2.2":
-  version "2.2.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/atom-common/npm/registry/@atom/common/-/common-2.2.2.tgz#01634b93b62ecd3246018f57c864183770a5d6ce"
-  integrity sha1-AWNLk7YuzTJGAY9XyGQYN3Cl1s4=
+"@atom/common@^2.2.15":
+  version "2.2.15"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.2.15.tgz#d39cb47d6199ee8ef6b21f4d96a07ffdc4bef6be"
+  integrity sha1-05y0fWGZ7o72sh9NlqB//cS+9r4=
   dependencies:
     "@atom/common" "1.9.3"
     "@automapper/classes" "^7.0.2"

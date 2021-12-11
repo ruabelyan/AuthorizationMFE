@@ -71,12 +71,12 @@ const SignIn: FC<SignInProps> = ({
             <SignInComponent
               usernameInputName='username'
               passwordInputName='password'
-              usernameInputLabel={t.get('login.username')}
-              passwordInputLabel={t.get('login.password')}
-              title={t.get('login.title')}
-              subtitle={t.get('login.subtitle')}
-              buttonText={t.get('login.buttonText')}
-              loginErrorMessage={loginErrorMessageName && t.get(`login.${loginErrorMessageName}`)}
+              usernameInputLabel={t.get('username')}
+              passwordInputLabel={t.get('password')}
+              title={t.get('signIn')}
+              subtitle={t.get('loginToManageYourAccount')}
+              buttonText={t.get('login')}
+              loginErrorMessage={loginErrorMessageName && t.get(`${loginErrorMessageName}`)}
               renderInputs={inputRenderer}
             />
           </Form>
