@@ -19,27 +19,29 @@ const App = () => {
   if (!store) return null;
 
   return (
-    <Provider store={store}>
-      <AtomCommonProvider initializeLanguage>
-        <Router basename={ROUTES.baseUrl}>
-          <Switch>
-            <Route path={ROUTES.loginUrl} exact>
-              <SignInContainer />
-            </Route>
+    <div className='login-page'>
+      <Provider store={store}>
+        <AtomCommonProvider initializeLanguage>
+          <Router basename={ROUTES.baseUrl}>
+            <Switch>
+              <Route path={ROUTES.loginUrl} exact>
+                <SignInContainer />
+              </Route>
 
-            <Route path={ROUTES.callbackUrl} exact>
-              <SignInCallback />
-            </Route>
+              <Route path={ROUTES.callbackUrl} exact>
+                <SignInCallback />
+              </Route>
 
-            <Route path={ROUTES.logoutCallbackUrl} exact>
-              <LogoutCallback />
-            </Route>
+              <Route path={ROUTES.logoutCallbackUrl} exact>
+                <LogoutCallback />
+              </Route>
 
-            <Redirect to={ROUTES.baseUrl} />
-          </Switch>
-        </Router>
-      </AtomCommonProvider>
-    </Provider>
+              <Redirect to={ROUTES.baseUrl} />
+            </Switch>
+          </Router>
+        </AtomCommonProvider>
+      </Provider>
+    </div>
   );
 };
 
