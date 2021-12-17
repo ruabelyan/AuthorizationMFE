@@ -1,12 +1,12 @@
 import { useLoading, useTranslation } from '@atom/common';
 import { SignIn as SignInComponent } from '@atom/design-system';
-import { Field, Form, Formik } from 'formik';
+import { Field, Form, Formik, FormikHelpers } from 'formik';
 import { FC, useCallback, useEffect, useMemo } from 'react';
 import { SchemaOf } from 'yup';
 import { LoginViewModel } from '../models';
 
 export type SignInActions = {
-  onSubmit: (loginViewModel: LoginViewModel) => void;
+  onSubmit: (loginViewModel: LoginViewModel, formikHelper: FormikHelpers<LoginViewModel>) => void;
   clearErrorMessage: () => void;
 };
 
@@ -66,21 +66,25 @@ const SignIn: FC<SignInProps> = ({
         initialValues={signInFormInitialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}>
-        {() => (
-          <Form noValidate>
-            <SignInComponent
-              usernameInputName='username'
-              passwordInputName='password'
-              usernameInputLabel={t.get('username')}
-              passwordInputLabel={t.get('password')}
-              title={t.get('signIn')}
-              subtitle={t.get('loginToManageYourAccount')}
-              buttonText={t.get('login')}
-              loginErrorMessage={loginErrorMessageName && t.get(`${loginErrorMessageName}`)}
-              renderInputs={inputRenderer}
-            />
-          </Form>
-        )}
+        {(form) => {
+          return (
+            <>
+              <Form noValidate>
+                <SignInComponent
+                  usernameInputName='username'
+                  passwordInputName='password'
+                  usernameInputLabel={t.get('username')}
+                  passwordInputLabel={t.get('password')}
+                  title={t.get('signIn')}
+                  subtitle={t.get('loginToManageYourAccount')}
+                  buttonText={t.get('login')}
+                  loginErrorMessage={loginErrorMessageName && t.get(`${loginErrorMessageName}`)}
+                  renderInputs={inputRenderer}
+                />
+              </Form>
+            </>
+          );
+        }}
       </Formik>
     </>
   );
