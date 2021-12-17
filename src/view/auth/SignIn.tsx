@@ -73,7 +73,7 @@ const SignIn: FC<SignInProps> = ({
                 <SignInComponent
                   usernameInputName='username'
                   passwordInputName='password'
-                  usernameInputLabel={t.get('username')}
+                  usernameInputLabel={t.get('eMail')}
                   passwordInputLabel={t.get('password')}
                   title={t.get('signIn')}
                   subtitle={t.get('loginToManageYourAccount')}
