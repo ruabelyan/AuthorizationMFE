@@ -4,14 +4,15 @@ import { LoginViewModel } from '@/view/models';
 import { redirectToURL, useAsync, useQueryString, useTranslation, useValidationTranslation } from '@atom/common';
 import { alert } from '@atom/design-system';
 import { QueryStatus } from '@reduxjs/toolkit/dist/query';
-import { useCallback, useEffect, useMemo } from 'react';
-import { useDispatch } from 'react-redux';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { AddUserCustomErrorsEnum } from '../models/enums';
 import SignIn from './SignIn';
 
 const SignInContainer = () => {
   const [login, { error, isLoading, status }] = authApi.useLoginMutation();
 
+  const [invalidUserMessage, setInvalidUserMessage] = useState('');
+  
   const t = useValidationTranslation();
 
   const translation = useTranslation();
@@ -20,20 +21,12 @@ const SignInContainer = () => {
 
   const queries = useQueryString<{ ReturnUrl?: string }>();
 
-  const dispatch = useDispatch();
+  const clearErrorMessage = useCallback(() => {
+    setInvalidUserMessage('');
+  }, []);
 
-  const clearErrorMessage = useCallback(() => dispatch(authApi.util.resetApiState()), []);
-
-  const customErrors = useMemo<
-    Record<AddUserCustomErrorsEnum, { fieldKey: keyof LoginViewModel; errorMessage: string }[]>
-  >(
+  const customErrors = useMemo(
     () => ({
-      [AddUserCustomErrorsEnum.WRONG_USER_NAME_OR_PASSWORD]: [
-        {
-          fieldKey: 'password',
-          errorMessage: translation.get('wrongUserNameOrPassword')
-        }
-      ],
       [AddUserCustomErrorsEnum.BLOCKED_USER]: [
         {
           fieldKey: 'password',
@@ -57,6 +50,12 @@ const SignInContainer = () => {
           .unwrap()
           .catch((error: { message: AddUserCustomErrorsEnum }) => {
             if (error.message) {
+              if (+error.message === AddUserCustomErrorsEnum.WRONG_USER_NAME_OR_PASSWORD) {
+                setInvalidUserMessage(translation.get('wrongUserNameOrPassword'));
+
+                return;
+              }
+
               customErrors[error.message]?.forEach((error) => {
                 formikHelper.setFieldError(error.fieldKey, error.errorMessage);
               });
@@ -77,7 +76,7 @@ const SignInContainer = () => {
   return (
     <SignIn
       onSubmit={onSubmit}
-      loginErrorMessageName={error && error.name}
+      loginErrorMessageName={invalidUserMessage}
       isLoading={isLoading}
       clearErrorMessage={clearErrorMessage}
       validationSchema={validationSchema}
