@@ -1,7 +1,8 @@
 import { AuthRepository } from '@/data/repositories';
 import { IAuthRepository } from '@/domain/boundaries';
 import { AuthUseCase } from '@/domain/use-case';
-import { enviromentService, HttpService } from '@atom/common';
+import { CacheService, enviromentService, HttpService, ICacheService } from '@atom/common';
+import { IUserRepository, userHttpService, UserRepository } from '@atom/user-management';
 import { Container } from 'inversify';
 import { DI_CONSTANTS } from '.';
 
@@ -21,8 +22,12 @@ export class DiContainer {
         })
     );
 
+    this.diContainer.bind('UserHttpService').toDynamicValue(() => userHttpService);
+    this.diContainer.bind<ICacheService>(DI_CONSTANTS.CacheService).to(CacheService);
+
     // Repositories
     this.diContainer.bind<IAuthRepository>(DI_CONSTANTS.AuthRepository).to(AuthRepository);
+    this.diContainer.bind<IUserRepository>(DI_CONSTANTS.UserRepository).to(UserRepository);
 
     // Use cases
     this.diContainer.bind(DI_CONSTANTS.AuthUseCase).to(AuthUseCase);

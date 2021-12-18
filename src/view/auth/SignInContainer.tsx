@@ -77,6 +77,7 @@ const SignInContainer = () => {
   return (
     <SignIn
       onSubmit={onSubmit}
+      // @ts-expect-error For typecasting BaseError
       loginErrorMessageName={error && error.name}
       isLoading={isLoading}
       clearErrorMessage={clearErrorMessage}

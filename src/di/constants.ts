@@ -1,4 +1,6 @@
 export const DI_CONSTANTS = {
   AuthUseCase: 'AuthUseCase',
-  AuthRepository: 'AuthRepository'
+  AuthRepository: 'AuthRepository',
+  UserRepository: 'UserRepository',
+  CacheService: 'CacheService'
 };

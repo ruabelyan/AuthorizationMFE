@@ -3,14 +3,23 @@ import { mapper } from '@/mapper';
 import { oidcService } from '@/services';
 import { LoginViewModel } from '@/view/models';
 import { delay } from '@atom/common';
+import { IUserRepository, ParseIdTokenResponseModel } from '@atom/user-management';
 import { inject, injectable } from 'inversify';
 import { IAuthRepository } from '../boundaries';
 import { DELAY_AFTER_RESPONSE } from '../configs';
 import { LoginRequestModel } from '../models';
+
 @injectable()
 export class AuthUseCase {
   @inject(DI_CONSTANTS.AuthRepository)
   private readonly authRepository: IAuthRepository;
+
+  @inject(DI_CONSTANTS.UserRepository)
+  private readonly userRepository: IUserRepository;
+
+  parseIdToken = async (idToken: string): Promise<ParseIdTokenResponseModel> => {
+    return this.userRepository.parseIdToken(idToken);
+  };
 
   login = async (loginViewModel: LoginViewModel): Promise<boolean> => {
     const loginRequestModel = mapper.map(loginViewModel, LoginRequestModel, LoginViewModel);
