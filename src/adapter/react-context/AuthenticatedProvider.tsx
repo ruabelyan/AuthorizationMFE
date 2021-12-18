@@ -19,7 +19,9 @@ export const AuthenticatedProvider: FC = ({ children }) => {
 
     changeLoading(true);
 
-    oidcService.getUser();
+    if (!wasCalledGetUserBefore) {
+      oidcService.getUser();
+    }
 
     userService.subscribeForUpdate((user) => {
       setUser(user);
@@ -27,7 +29,7 @@ export const AuthenticatedProvider: FC = ({ children }) => {
       changeLoading(false);
     });
 
-    oidcService.subscribe(async (oidcUser) => {
+    oidcService.subscribeForUpdate(async (oidcUser) => {
       setOidcUser(oidcUser);
 
       if (!wasCalledGetUserBefore) {

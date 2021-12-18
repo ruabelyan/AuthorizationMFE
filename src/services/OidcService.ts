@@ -13,11 +13,18 @@ class OidcService extends Subscribable<User> {
   };
 
   private userManager: UserManager = null;
+  private user: User = null;
 
   constructor() {
     super();
 
     this.userManager = new OidcClient.UserManager(OidcService.userManagerConfig);
+  }
+
+  subscribeForUpdate(cb: (user: User) => void) {
+    this.subscribe(cb);
+
+    if (this.user) cb(this.user);
   }
 
   signInRedirect() {
@@ -37,6 +44,8 @@ class OidcService extends Subscribable<User> {
         if (!user) this.signInRedirect();
 
         this.publish(user);
+
+        this.user = user;
 
         return user;
       })

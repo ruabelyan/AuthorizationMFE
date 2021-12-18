@@ -25,7 +25,6 @@ export class DiContainer {
     this.diContainer.bind('UserHttpService').toDynamicValue(() => userHttpService);
     this.diContainer.bind<ICacheService>(DI_CONSTANTS.CacheService).to(CacheService);
 
-    // Repositories
     this.diContainer.bind<IAuthRepository>(DI_CONSTANTS.AuthRepository).to(AuthRepository);
     this.diContainer.bind<IUserRepository>(DI_CONSTANTS.UserRepository).to(UserRepository);
 
