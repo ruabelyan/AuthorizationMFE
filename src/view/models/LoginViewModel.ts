@@ -2,7 +2,7 @@ import { AutoMap } from '@automapper/classes';
 
 export class LoginViewModel {
   @AutoMap()
-  username: string;
+  email: string;
 
   @AutoMap()
   password: string;

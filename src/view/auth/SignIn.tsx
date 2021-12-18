@@ -49,7 +49,7 @@ const SignIn: FC<SignInProps> = ({
 
   const signInFormInitialValues = useMemo(
     () => ({
-      username: '',
+      email: '',
       password: ''
     }),
     []
@@ -67,11 +67,12 @@ const SignIn: FC<SignInProps> = ({
         validationSchema={validationSchema}
         onSubmit={onSubmit}>
         {(form) => {
+          console.log(form);
           return (
             <>
               <Form noValidate>
                 <SignInComponent
-                  usernameInputName='username'
+                  usernameInputName='email'
                   passwordInputName='password'
                   usernameInputLabel={t.get('eMail')}
                   passwordInputLabel={t.get('password')}

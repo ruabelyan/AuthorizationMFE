@@ -13,7 +13,7 @@ export class AuthRepository implements IAuthRepository {
     const response = await this.httpService.post<LoginResponseModel, {}, {}>({
       url: API_ROUTES.AUTH.LOGIIN,
       body: {
-        username: loginRequestModel.username,
+        email: loginRequestModel.email,
         password: loginRequestModel.password,
         returnUrl: loginRequestModel.returnUrl
       }
