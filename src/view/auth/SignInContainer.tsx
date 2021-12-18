@@ -30,19 +30,19 @@ const SignInContainer = () => {
     () => ({
       [AddUserCustomErrorsEnum.WRONG_USER_NAME_OR_PASSWORD]: [
         {
-          fieldKey: 'username',
+          fieldKey: 'password',
           errorMessage: translation.get('wrongUserNameOrPassword')
         }
       ],
       [AddUserCustomErrorsEnum.BLOCKED_USER]: [
         {
-          fieldKey: 'username',
+          fieldKey: 'password',
           errorMessage: translation.get('blockedUser')
         }
       ],
       [AddUserCustomErrorsEnum.EXPIRED_USER]: [
         {
-          fieldKey: 'username',
+          fieldKey: 'password',
           errorMessage: translation.get('accessDenied')
         }
       ]
