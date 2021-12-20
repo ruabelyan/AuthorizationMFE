@@ -85,10 +85,10 @@
     single-spa-react "^4.2.0"
     yup "^0.32.10"
 
-"@atom/user-management@^1.0.2":
-  version "1.0.2"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/user-management/-/user-management-1.0.2.tgz#96e01320a865ec85080a81e044b038283dc360cb"
-  integrity sha1-luATIKhl7IUICoHgRLA4KD3DYMs=
+"@atom/user-management@^1.0.3":
+  version "1.0.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/user-management/-/user-management-1.0.3.tgz#ac70d0234fb19504d23c1ecf7d7f696a0983c96f"
+  integrity sha1-rHDQI0+xlQTSPB7PfX9pagmDyW8=
   dependencies:
     "@atom/authorization" "^1.2.3"
     "@atom/partner-management" "^1.0.3"

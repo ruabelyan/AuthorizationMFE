@@ -1,11 +1,10 @@
 import { containerInstance, DI_CONSTANTS } from '@/di';
-import { UserEntity } from '@/domain/entities';
 import { AuthUseCase } from '@/domain/use-case';
 import { Subscribable } from '@atom/common';
 import { ParseIdTokenResponseModel } from '@atom/user-management';
 
 class UserService extends Subscribable<ParseIdTokenResponseModel> {
-  private user: UserEntity = null;
+  private user: ParseIdTokenResponseModel = null;
 
   subscribeForUpdate = (cb: (msg: ParseIdTokenResponseModel) => void) => {
     this.subscribe(cb);
