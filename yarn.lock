@@ -66,10 +66,10 @@
     react-jss "^10.8.2"
     react-sortable-hoc "^2.0.0"
 
-"@atom/partner-management@^1.0.3":
-  version "1.0.3"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/partner-management/-/partner-management-1.0.3.tgz#904f5b12bb01b9f497d7ddffa84f23146802d9d5"
-  integrity sha1-kE9bErsBufSX193/qE8jFGgC2dU=
+"@atom/partner-management@^1.0.6":
+  version "1.0.6"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/partner-management/-/partner-management-1.0.6.tgz#91881fb385ca390a60e17fbb74ad9794bcc89154"
+  integrity sha1-kYgfs4XKOQpg4X+7dK2XlLzIkVQ=
   dependencies:
     "@atom/authorization" "^1.2.3"
     "@automapper/classes" "^7.0.2"
@@ -85,13 +85,13 @@
     single-spa-react "^4.2.0"
     yup "^0.32.10"
 
-"@atom/user-management@^1.0.3":
-  version "1.0.3"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/user-management/-/user-management-1.0.3.tgz#ac70d0234fb19504d23c1ecf7d7f696a0983c96f"
-  integrity sha1-rHDQI0+xlQTSPB7PfX9pagmDyW8=
+"@atom/user-management@^1.0.4":
+  version "1.0.4"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/user-management/-/user-management-1.0.4.tgz#96b38ca0f7371cfcd7161f643433a7cf7affa5cd"
+  integrity sha1-lrOMoPc3HPzXFh9kNDOnz3r/pc0=
   dependencies:
     "@atom/authorization" "^1.2.3"
-    "@atom/partner-management" "^1.0.3"
+    "@atom/partner-management" "^1.0.6"
     "@automapper/classes" "^7.0.2"
     "@automapper/core" "^7.0.2"
     "@my-ui/core" "^2.23.27"
