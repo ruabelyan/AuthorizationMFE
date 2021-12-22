@@ -1,6 +1,6 @@
 import { containerInstance } from '@/di';
 import { oidcService, OidcUser, userService } from '@/services';
-import { useLoading } from '@atom/common';
+import { setIdToken, useLoading } from '@atom/common';
 import { ParseIdTokenResponseModel } from '@atom/user-management';
 import { FC, useEffect, useState } from 'react';
 import { AuthenticatedContext } from './AuthenticatedContext';
@@ -32,6 +32,8 @@ export const AuthenticatedProvider: FC = ({ children }) => {
     oidcService.subscribeForUpdate(async (oidcUser) => {
       setOidcUser(oidcUser);
 
+      setIdToken(oidcUser.id_token);
+
       if (!wasCalledGetUserBefore) {
         userService.getUser(oidcUser.id_token);
       }
@@ -46,7 +48,8 @@ export const AuthenticatedProvider: FC = ({ children }) => {
     <AuthenticatedContext.Provider
       value={{
         oidcUser,
-        user
+        user,
+        updateUserInfo: (updatedInfo: Partial<ParseIdTokenResponseModel>) => setUser({ ...user, ...updatedInfo })
       }}>
       {children}
     </AuthenticatedContext.Provider>

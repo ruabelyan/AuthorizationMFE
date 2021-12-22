@@ -1,6 +1,6 @@
 {
   "name": "@atom/authorization",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "main": "",
   "types": "./dist/atom-authorization.d.ts",
   "files": [
@@ -26,7 +26,7 @@
     "pre-push": "yarn format"
   },
   "devDependencies": {
-    "@atom/common": "^2.8.3",
+    "@atom/common": "^2.8.12",
     "@babel/core": "^7.14.6",
     "@babel/eslint-parser": "^7.14.7",
     "@babel/plugin-proposal-decorators": "^7.15.8",
