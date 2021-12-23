@@ -38,10 +38,10 @@
     single-spa "^5.9.3"
     single-spa-react "^4.6.0"
 
-"@atom/common@^2.8.12":
-  version "2.8.12"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.8.12.tgz#6c54e8e0836c8b467856701ba125bebc7a8ca3e8"
-  integrity sha1-bFTo4INsi0Z4VnAboSW+vHqMo+g=
+"@atom/common@^2.8.19":
+  version "2.8.19"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.8.19.tgz#028bcab11036a0d99af973815e986f286d124075"
+  integrity sha1-AovKsRA2oNma+XOBXphvKG0SQHU=
   dependencies:
     "@automapper/classes" "^7.0.2"
     "@automapper/core" "^7.0.2"
