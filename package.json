@@ -1,6 +1,6 @@
 {
   "name": "@atom/authorization",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "main": "",
   "types": "./dist/atom-authorization.d.ts",
   "files": [
