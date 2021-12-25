@@ -26,7 +26,7 @@
     "pre-push": "yarn format"
   },
   "devDependencies": {
-    "@atom/common": "^2.8.19",
+    "@atom/common": "^2.8.27",
     "@babel/core": "^7.14.6",
     "@babel/eslint-parser": "^7.14.7",
     "@babel/plugin-proposal-decorators": "^7.15.8",

@@ -38,15 +38,16 @@
     single-spa "^5.9.3"
     single-spa-react "^4.6.0"
 
-"@atom/common@^2.8.19":
-  version "2.8.19"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.8.19.tgz#028bcab11036a0d99af973815e986f286d124075"
-  integrity sha1-AovKsRA2oNma+XOBXphvKG0SQHU=
+"@atom/common@^2.8.27":
+  version "2.8.27"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.8.27.tgz#3217a345b69ecc6db3227037baa21895b25ccbc3"
+  integrity sha1-MhejRbaezG2zInA3uqIYlbJcy8M=
   dependencies:
     "@automapper/classes" "^7.0.2"
     "@automapper/core" "^7.0.2"
     "@microsoft/signalr" "^6.0.1"
     "@microsoft/signalr-protocol-msgpack" "^6.0.1"
+    "@my-ui/core" "^2.28.18"
     axios "^0.23.0"
     dayjs "^1.10.7"
     formik "^2.2.9"
@@ -1489,6 +1490,21 @@
   version "2.26.13"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.26.13.tgz#4d1c9f2a1092b91ff1c37cfcb980fbc9afcb0ecd"
   integrity sha1-TRyfKhCSuR/xw3z8uYD7ya/LDs0=
+  dependencies:
+    "@my-ui/react-datepicker" "^1.5.0"
+    "@my-ui/react-select" "1.1.6"
+    "@my-ui/react-table" "1.3.0"
+    "@my-ui/scrollbar" "^1.0.2"
+    classnames "^2.3.1"
+    react-jss "^10.8.0"
+    react-paginate "^7.1.5"
+    react-transition-group "^4.4.2"
+    throttle-debounce "^3.0.1"
+
+"@my-ui/core@^2.28.18":
+  version "2.28.40"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.28.40.tgz#ad8526ed1e340ba86109ec48aac2af308b408a72"
+  integrity sha1-rYUm7R40C6hhCexIqsKvMItAinI=
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
