@@ -1,7 +1,7 @@
 import { authApi } from '@/adapter/redux/api';
 import { getLoginValidationSchema } from '@/validators';
 import { LoginViewModel } from '@/view/models';
-import { redirectToURL, useAsync, useQueryString, useTranslation, useValidationTranslation } from '@atom/common';
+import { historyService, useAsync, useQueryString, useTranslation, useValidationTranslation } from '@atom/common';
 import { alert } from '@atom/design-system';
 import { QueryStatus } from '@reduxjs/toolkit/dist/query';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -38,6 +38,12 @@ const SignInContainer = () => {
           fieldKey: 'password',
           errorMessage: translation.get('accessDenied')
         }
+      ],
+      [AddUserCustomErrorsEnum.WRONG_USER_NAME_OR_PASSWORD]: [
+        {
+          fieldKey: 'password',
+          errorMessage: translation.get('wrongUserNameOrPassword')
+        }
       ]
     }),
     [t]
@@ -70,7 +76,7 @@ const SignInContainer = () => {
   );
 
   useEffect(() => {
-    if (status === QueryStatus.fulfilled) redirectToURL('/');
+    if (status === QueryStatus.fulfilled) historyService.redirectToURL('/');
   }, [status]);
 
   return (
