@@ -1,3 +1,3 @@
 export enum ChangePasswordCustomErrorsEnum {
-  NO_VALIDATE_PASSWORD = -4,
+  NO_VALIDATE_PASSWORD = -4
 }

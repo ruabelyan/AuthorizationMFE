@@ -80,13 +80,13 @@ const SignInContainer = () => {
   }, [status]);
 
   return (
-      <SignIn
-        onSubmit={onSubmit}
-        loginErrorMessageName={invalidUserMessage}
-        isLoading={isLoading}
-        clearErrorMessage={clearErrorMessage}
-        validationSchema={validationSchema}
-      />
+    <SignIn
+      onSubmit={onSubmit}
+      loginErrorMessageName={invalidUserMessage}
+      isLoading={isLoading}
+      clearErrorMessage={clearErrorMessage}
+      validationSchema={validationSchema}
+    />
   );
 };
 

@@ -50,6 +50,6 @@ export class AuthUseCase {
       ChangePasswordViewModel
     );
 
-    return this.authRepository.changePassword(changePasswordRequestModel);;
+    return this.authRepository.changePassword(changePasswordRequestModel);
   };
 }

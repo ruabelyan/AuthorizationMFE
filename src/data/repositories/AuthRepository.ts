@@ -29,9 +29,7 @@ export class AuthRepository implements IAuthRepository {
 
     return true;
   };
-  changePassword = async (
-    changePasswordRequestModel: ChangeUserPasswordRequestModel
-  ): Promise<ActionResponseModel> => {
+  changePassword = async (changePasswordRequestModel: ChangeUserPasswordRequestModel): Promise<ActionResponseModel> => {
     return await this.httpService.put<ActionResponseModel, ChangeUserPasswordRequestModel, {}>({
       url: API_ROUTES.AUTH.CHANGE_PASSWORD,
       body: changePasswordRequestModel
