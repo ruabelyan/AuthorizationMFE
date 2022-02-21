@@ -1,6 +1,6 @@
-import { useLoading, useTranslation } from '@atom/common';
+import { CustomForm, useLoading, useTranslation } from '@atom/common';
 import { SignIn as SignInComponent } from '@atom/design-system';
-import { Field, Form, Formik, FormikHelpers } from 'formik';
+import { Field, Form, FormikHelpers } from 'formik';
 import { FC, useCallback, useEffect, useMemo } from 'react';
 import { SchemaOf } from 'yup';
 import { LoginViewModel } from '../models';
@@ -61,13 +61,12 @@ const SignIn: FC<SignInProps> = ({
 
   return (
     <>
-      <Formik
+      <CustomForm
         enableReinitialize
         initialValues={signInFormInitialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}>
-        {(form) => {
-          console.log(form);
+        {() => {
           return (
             <>
               <Form noValidate>
@@ -86,7 +85,7 @@ const SignIn: FC<SignInProps> = ({
             </>
           );
         }}
-      </Formik>
+      </CustomForm>
     </>
   );
 };
