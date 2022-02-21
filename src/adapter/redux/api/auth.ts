@@ -1,8 +1,9 @@
 import { DI_CONSTANTS } from '@/di';
 import { AuthUseCase } from '@/domain/use-case';
-import { LoginViewModel } from '@/view/models';
+import { ChangePasswordViewModel, LoginViewModel } from '@/view/models';
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { createBaseQuery } from '../helpers';
+import { ActionResponseModel } from '@atom/common';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -19,6 +20,14 @@ export const authApi = createApi({
         methodName: 'logout',
         methodArguments: []
       })
+    }),
+    changePassword: build.mutation<ActionResponseModel, {}>({
+      query: (changePasswordViewModel: ChangePasswordViewModel) => {
+        return {
+          methodName: 'changePassword',
+          methodArguments: [changePasswordViewModel]
+        };
+      }
     })
   })
 });

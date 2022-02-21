@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import { LogoutCallback, SignInCallback, SignInContainer } from './auth';
+import { ChangePasswordPageContainer } from './auth/change-password';
 import { ROUTES } from './constants';
 
 const App = () => {
@@ -34,6 +35,9 @@ const App = () => {
 
               <Route path={ROUTES.logoutCallbackUrl} exact>
                 <LogoutCallback />
+              </Route>
+              <Route path={ROUTES.changePassword} exact>
+                <ChangePasswordPageContainer />
               </Route>
 
               <Redirect to={ROUTES.baseUrl} />

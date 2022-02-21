@@ -1,6 +1,6 @@
 import { IAuthRepository } from '@/domain/boundaries';
-import { LoginRequestModel, LoginResponseModel } from '@/domain/models';
-import { IHttpService } from '@atom/common';
+import { ChangeUserPasswordRequestModel, LoginRequestModel, LoginResponseModel } from '@/domain/models';
+import { IHttpService, ActionResponseModel } from '@atom/common';
 import { inject, injectable } from 'inversify';
 import { API_ROUTES } from '../constants';
 
@@ -28,5 +28,13 @@ export class AuthRepository implements IAuthRepository {
     });
 
     return true;
+  };
+  changePassword = async (
+    changePasswordRequestModel: ChangeUserPasswordRequestModel
+  ): Promise<ActionResponseModel> => {
+    return await this.httpService.put<ActionResponseModel, ChangeUserPasswordRequestModel, {}>({
+      url: API_ROUTES.AUTH.CHANGE_PASSWORD,
+      body: changePasswordRequestModel
+    });
   };
 }

@@ -2,5 +2,6 @@ export const ROUTES = {
   baseUrl: '/login',
   loginUrl: '/',
   callbackUrl: '/callback',
-  logoutCallbackUrl: '/logout'
+  logoutCallbackUrl: '/logout',
+  changePassword: '/change-password'
 };

@@ -4,6 +4,8 @@ import { HttpService, useLoading } from '@atom/common';
 import { ParseIdTokenResponseModel } from '@atom/user-management';
 import { FC, useEffect, useState } from 'react';
 import { AuthenticatedContext } from './AuthenticatedContext';
+import  singleSpa  from 'single-spa';
+import { ROUTES } from '@/view/constants';
 
 let wasCalledGetUserBefore = false;
 
@@ -25,6 +27,11 @@ export const AuthenticatedProvider: FC = ({ children }) => {
 
     userService.subscribeForUpdate((user) => {
       setUser(user);
+
+
+      // if (user.) {
+      //   singleSpa.navigateToUrl(ROUTES.changePassword);
+      // }
 
       changeLoading(false);
     });

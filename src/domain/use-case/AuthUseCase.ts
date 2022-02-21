@@ -1,13 +1,13 @@
 import { DI_CONSTANTS } from '@/di';
 import { mapper } from '@/mapper';
 import { oidcService } from '@/services';
-import { LoginViewModel } from '@/view/models';
-import { delay } from '@atom/common';
+import { ChangePasswordViewModel, LoginViewModel } from '@/view/models';
+import { delay, ActionResponseModel } from '@atom/common';
 import { IUserRepository, ParseIdTokenResponseModel } from '@atom/user-management';
 import { inject, injectable } from 'inversify';
 import { IAuthRepository } from '../boundaries';
 import { DELAY_AFTER_RESPONSE } from '../configs';
-import { LoginRequestModel } from '../models';
+import { ChangePasswordRequestModel, ChangeUserPasswordRequestModel, LoginRequestModel } from '../models';
 
 @injectable()
 export class AuthUseCase {
@@ -42,5 +42,14 @@ export class AuthUseCase {
 
       return true;
     }
+  };
+  changePassword = async (editPasswordViewModel: ChangePasswordViewModel): Promise<ActionResponseModel> => {
+    const changePasswordRequestModel = mapper.map(
+      editPasswordViewModel,
+      ChangePasswordRequestModel,
+      ChangePasswordViewModel
+    );
+
+    return this.authRepository.changePassword(changePasswordRequestModel);;
   };
 }
