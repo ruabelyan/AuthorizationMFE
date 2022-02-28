@@ -33,6 +33,7 @@ export const AuthenticatedProvider: FC = ({ children }) => {
       setOidcUser(oidcUser);
 
       HttpService.setAccessToken(oidcUser.access_token);
+      HttpService.setLogoutCb(() => oidcService.logOut());
 
       if (!wasCalledGetUserBefore) {
         userService.getUser(oidcUser.id_token);
