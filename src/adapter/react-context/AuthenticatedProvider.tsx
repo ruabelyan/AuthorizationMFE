@@ -51,7 +51,8 @@ export const AuthenticatedProvider: FC = ({ children }) => {
       value={{
         oidcUser,
         user,
-        updateUserInfo: (updatedInfo: Partial<ParseIdTokenResponseModel>) => setUser({ ...user, ...updatedInfo })
+        updateUserInfo: (updatedInfo: Partial<ParseIdTokenResponseModel>) =>
+          userService.publish({ ...user, ...updatedInfo })
       }}>
       {children}
     </AuthenticatedContext.Provider>
