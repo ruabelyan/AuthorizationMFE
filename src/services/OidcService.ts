@@ -4,7 +4,7 @@ import OidcClient, { User, UserManager, UserManagerSettings } from 'oidc-client'
 
 class OidcService extends Subscribable<User> {
   private static userManagerConfig: UserManagerSettings = {
-    authority: enviromentService.get('identityServerApiUrl'),
+    authority: enviromentService.get<{ identityServer: string }>('apiUrlPaths').identityServer,
     client_id: 'spa',
     redirect_uri: `${window.origin}${ROUTES.baseUrl}${ROUTES.callbackUrl}`,
     post_logout_redirect_uri: `${window.origin}${ROUTES.baseUrl}/loggedOut`,
