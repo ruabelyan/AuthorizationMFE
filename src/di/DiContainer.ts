@@ -17,7 +17,7 @@ export class DiContainer {
     this.diContainer.bind('IHttpService').toDynamicValue(
       () =>
         new HttpService({
-          url: enviromentService.get<{ identityServer: string }>('apiUrlPaths').identityServer,
+          baseURL: enviromentService.get<{ identityServer: string }>('apiUrlPaths').identityServer,
           withCredentials: true
         })
     );
