@@ -20,9 +20,9 @@ export const AuthenticatedProvider: FC = ({ children }) => {
 
     setUserService(userService);
 
-    changeLoading(true);
-
     if (!wasCalledGetUserBefore) {
+      changeLoading(true);
+
       userService.getUser();
     }
 
