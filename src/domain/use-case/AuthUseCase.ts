@@ -1,8 +1,9 @@
+import { LOCAL_STORAGE_CONSTANTS } from '@/configs';
 import { DI_CONSTANTS } from '@/di';
 import { mapper } from '@/mapper';
 import { oidcService } from '@/services';
 import { LoginViewModel } from '@/view/models';
-import { delay } from '@atom/common';
+import { delay, StorageService } from '@atom/common';
 import { IUserRepository, ParseIdTokenResponseModel } from '@atom/user-management';
 import { inject, injectable } from 'inversify';
 import { IAuthRepository } from '../boundaries';
@@ -11,6 +12,9 @@ import { LoginRequestModel } from '../models';
 
 @injectable()
 export class AuthUseCase {
+  @inject(DI_CONSTANTS.LocalStorageService)
+  private readonly localStorageService: StorageService;
+
   @inject(DI_CONSTANTS.AuthRepository)
   private readonly authRepository: IAuthRepository;
 
@@ -28,7 +32,9 @@ export class AuthUseCase {
 
     await delay(DELAY_AFTER_RESPONSE);
 
-    window.location.replace(loginResponseModel.redirectUrl);
+    this.localStorageService.setItem(LOCAL_STORAGE_CONSTANTS.USER_ACCESS_TOKEN, loginResponseModel.token);
+
+    window.location.replace(loginViewModel.returnUrl);
 
     return true;
   };

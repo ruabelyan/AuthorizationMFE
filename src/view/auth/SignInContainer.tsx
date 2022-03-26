@@ -51,26 +51,26 @@ const SignInContainer = () => {
 
   const onSubmit = useCallback(
     (values: LoginViewModel, formikHelper) => {
-      if (queries.ReturnUrl) {
-        login({ ...values, returnUrl: queries.ReturnUrl })
-          .unwrap()
-          .catch((error: { message: AddUserCustomErrorsEnum }) => {
-            if (error.message) {
-              if (+error.message === AddUserCustomErrorsEnum.WRONG_USER_NAME_OR_PASSWORD) {
-                setInvalidUserMessage(translation.get('wrongUserNameOrPassword'));
+      // if (queries.ReturnUrl) {
+      login({ ...values, returnUrl: '/' })
+        .unwrap()
+        .catch((error: { message: AddUserCustomErrorsEnum }) => {
+          if (error.message) {
+            if (+error.message === AddUserCustomErrorsEnum.WRONG_USER_NAME_OR_PASSWORD) {
+              setInvalidUserMessage(translation.get('wrongUserNameOrPassword'));
 
-                return;
-              }
+              return;
+            }
 
-              customErrors[error.message]?.forEach((error) => {
-                formikHelper.setFieldError(error.fieldKey, error.errorMessage);
-              });
-            } else
-              alert.error({
-                alertLabel: translation.get('connectionError')
-              });
-          });
-      }
+            customErrors[error.message]?.forEach((error) => {
+              formikHelper.setFieldError(error.fieldKey, error.errorMessage);
+            });
+          } else
+            alert.error({
+              alertLabel: translation.get('connectionError')
+            });
+        });
+      // }
     },
     [queries]
   );

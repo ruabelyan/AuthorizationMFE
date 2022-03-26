@@ -1,4 +1,7 @@
+import { PrimaryKey } from '@atom/common';
+
 export class LoginResponseModel {
-  isOk: boolean;
-  redirectUrl: string;
+  token: string;
+  userId: PrimaryKey;
+  userName: string;
 }
