@@ -4,7 +4,7 @@ import { Subscribable } from '@atom/common';
 import { ParseIdTokenResponseModel } from '@atom/user-management';
 
 class UserService extends Subscribable<ParseIdTokenResponseModel> {
-  private user: ParseIdTokenResponseModel = null;
+  public user: ParseIdTokenResponseModel = null;
 
   subscribeForUpdate = (cb: (msg: ParseIdTokenResponseModel) => void) => {
     this.subscribe(cb);

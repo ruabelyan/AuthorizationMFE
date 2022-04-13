@@ -2,10 +2,48 @@
 # yarn lockfile v1
 
 
-"@ampproject/remapping@^2.0.0":
-  version "2.0.2"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@ampproject/remapping/-/remapping-2.0.2.tgz#f3d9760bf30588c51408dbe7c05ff2bb13069307"
-  integrity sha1-89l2C/MFiMUUCNvnwF/yuxMGkwc=
+"@atom/account-management@^1.1.7":
+  version "0.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/account-management/-/account-management-0.1.0.tgz#a677731da99211ece6332023e9068ef4ef6a65a0"
+  integrity sha1-pndzHamSEezmMyAj6QaO9O9qZaA=
+  dependencies:
+    "@automapper/classes" "^7.0.2"
+    "@automapper/core" "^7.0.2"
+    "@reduxjs/toolkit" "^1.7.1"
+    inversify "^5.1.1"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    react-redux "^7.2.5"
+    react-router-dom "^5.3.0"
+    reflect-metadata "^0.1.13"
+    single-spa-react "^4.2.0"
+
+"@atom/authorization@^0.1.0":
+  version "0.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/authorization/-/authorization-0.1.0.tgz#53821524dc41fae2d8657298429cdcb2be4d9d34"
+  integrity sha1-U4IVJNxB+uLYZXKYQpzcsr5NnTQ=
+  dependencies:
+    "@atom/design-system" "^2.2.6"
+    "@atom/user-management" "^1.0.4"
+    "@automapper/classes" "^7.0.2"
+    "@automapper/core" "^7.0.2"
+    "@reduxjs/toolkit" "^1.6.1"
+    formik "^2.2.9"
+    inversify "^5.1.1"
+    oidc-client "^1.11.5"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    react-redux "^7.2.5"
+    react-router-dom "5.3.0"
+    reflect-metadata "^0.1.13"
+    single-spa "^5.9.3"
+    single-spa-react "^4.4.0"
+    yup "^0.32.10"
+
+"@atom/authorization@^1.2.3":
+  version "1.2.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/authorization/-/authorization-1.2.3.tgz#44a3007db011e75f834282b7a79d8b874b5ed2fa"
+  integrity sha1-RKMAfbAR51+DQoK3p52Lh0te0vo=
   dependencies:
     "@jridgewell/trace-mapping" "^0.2.2"
     sourcemap-codec "1.4.8"
@@ -32,12 +70,11 @@
     single-spa-react "^4.4.0"
     yup "^0.32.10"
 
-"@atom/common@^2.8.37", "@atom/common@^2.8.38":
-  version "2.8.40"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.8.40.tgz#5eaadc9152db6341c630c8ed2cc12a291de571b9"
-  integrity sha1-XqrckVLbY0HGMMjtLMEqKR3lcbk=
+"@atom/common@^0.1.10":
+  version "0.1.10"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-0.1.10.tgz#2446541bd1aba480aa7597a76a0cc45d57ce449d"
+  integrity sha1-JEZUG9GrpICqdZenagzEXVfORJ0=
   dependencies:
-    "@atom/common" "^2.8.38"
     "@automapper/classes" "^7.0.2"
     "@automapper/core" "^7.0.2"
     "@microsoft/signalr" "^6.0.1"
@@ -50,6 +87,37 @@
     react "^17.0.2"
     single-spa "^5.9.3"
     single-spa-react "^4.6.0"
+
+"@atom/common@^2.3.4":
+  version "2.6.4"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.6.4.tgz#0d4c8a008e6bf4be980f13568d06ede068f81d85"
+  integrity sha1-DUyKAI5r9L6YDxNWjQbt4Gj4HYU=
+  dependencies:
+    "@atom/common" "^2.8.38"
+    "@automapper/classes" "^7.0.2"
+    "@automapper/core" "^7.0.2"
+    axios "^0.23.0"
+    dayjs "^1.10.7"
+    formik "^2.2.9"
+    moment "^2.29.1"
+    query-string "^7.0.1"
+    react "^17.0.2"
+    single-spa "^5.9.3"
+    single-spa-react "^4.6.0"
+
+"@atom/design-system@^0.1.0":
+  version "0.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/design-system/-/design-system-0.1.0.tgz#cca9e14ab333a76b8d638ba905aa4e3a3676d6fb"
+  integrity sha1-zKnhSrMzp2uNY4upBapOOjZ21vs=
+  dependencies:
+    "@my-ui/core" "^3.1.0"
+    classnames "^2.3.1"
+    react "^17.0.2"
+    react-cropper "^2.1.8"
+    react-dom "^17.0.2"
+    react-jss "^10.8.2"
+    react-sortable-hoc "^2.0.0"
+    react-transition-group "^4.4.2"
 
 "@atom/design-system@^2.2.6":
   version "2.6.7"
@@ -86,12 +154,56 @@
     single-spa-react "^4.2.0"
     yup "^0.32.10"
 
+"@atom/game-management@^1.0.3":
+  version "0.1.2"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/game-management/-/game-management-0.1.2.tgz#6ccaa96184f1b0e595b9dce644b4f68e2d0b4380"
+  integrity sha1-bMqpYYTxsOWVudzmRLT2ji0LQ4A=
+  dependencies:
+    "@atom/authorization" "^0.1.0"
+    "@atom/design-system" "^0.1.0"
+    "@automapper/classes" "^7.0.2"
+    "@automapper/core" "^7.0.2"
+    "@reduxjs/toolkit" "^1.6.2"
+    atom "^1.4.1"
+    formik "^2.2.9"
+    immer "^9.0.7"
+    inversify "^5.1.1"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    react-redux "^7.2.5"
+    react-router-dom "^5.3.0"
+    reflect-metadata "^0.1.13"
+    single-spa-react "^4.2.0"
+    yup "^0.32.10"
+
 "@atom/partner-management@^1.0.6":
   version "1.0.6"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/partner-management/-/partner-management-1.0.6.tgz#91881fb385ca390a60e17fbb74ad9794bcc89154"
   integrity sha1-kYgfs4XKOQpg4X+7dK2XlLzIkVQ=
   dependencies:
     "@atom/authorization" "^1.2.3"
+    "@automapper/classes" "^7.0.2"
+    "@automapper/core" "^7.0.2"
+    "@reduxjs/toolkit" "^1.6.2"
+    formik "^2.2.9"
+    inversify "^5.1.1"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    react-redux "^7.2.5"
+    react-router-dom "^5.3.0"
+    reflect-metadata "^0.1.13"
+    single-spa-react "^4.2.0"
+    yup "^0.32.10"
+
+"@atom/user-management@^0.1.0":
+  version "0.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/user-management/-/user-management-0.1.0.tgz#8368730c09c01e3509f5ecea58a80fbd0ff90c5d"
+  integrity sha1-g2hzDAnAHjUJ9ezqWKgPvQ/5DF0=
+  dependencies:
+    "@atom/account-management" "^1.1.7"
+    "@atom/authorization" "^1.2.3"
+    "@atom/game-management" "^1.0.3"
+    "@atom/partner-management" "^1.0.6"
     "@automapper/classes" "^7.0.2"
     "@automapper/core" "^7.0.2"
     "@reduxjs/toolkit" "^1.6.2"
@@ -1552,6 +1664,22 @@
     react-transition-group "^4.4.2"
     throttle-debounce "^3.0.1"
 
+"@my-ui/core@^3.1.0":
+  version "0.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.3.9.tgz#0628074c31bf970fcdea5ced8530a0e2510f3a9f"
+  integrity sha1-BigHTDG/lw/N6lzthTCg4lEPOp8=
+  dependencies:
+    "@my-ui/react-datepicker" "^1.5.0"
+    "@my-ui/react-select" "1.1.6"
+    "@my-ui/react-table" "1.3.0"
+    "@my-ui/scrollbar" "^1.0.2"
+    classnames "^2.3.1"
+    react-flip-move "^3.0.4"
+    react-jss "^10.8.0"
+    react-paginate "^7.1.5"
+    react-transition-group "^4.4.2"
+    throttle-debounce "^3.0.1"
+
 "@my-ui/react-datepicker@^1.5.0":
   version "1.5.0"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/react-datepicker/-/react-datepicker-1.5.0.tgz#1b8def5bd5e04013f976ce03e4f8af14ad1568bc"
@@ -1631,6 +1759,16 @@
   version "1.7.2"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@reduxjs/toolkit/-/toolkit-1.7.2.tgz#b428aaef92582379464f9de698dbb71957eafb02"
   integrity sha1-tCiq75JYI3lGT53mmNu3GVfq+wI=
+  dependencies:
+    immer "^9.0.7"
+    redux "^4.1.2"
+    redux-thunk "^2.4.1"
+    reselect "^4.1.5"
+
+"@reduxjs/toolkit@^1.7.1":
+  version "1.7.2"
+  resolved "https://registry.npmjs.org/@reduxjs/toolkit/-/toolkit-1.7.2.tgz#b428aaef92582379464f9de698dbb71957eafb02"
+  integrity sha512-wwr3//Ar8ZhM9bS58O+HCIaMlR4Y6SNHfuszz9hKnQuFIKvwaL3Kmjo6fpDKUOjo4Lv54Yi299ed8rofCJ/Vjw==
   dependencies:
     immer "^9.0.7"
     redux "^4.1.2"
@@ -2640,6 +2778,11 @@ atom@^1.4.1:
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/atom/-/atom-1.4.1.tgz#436df9ed119e12209899d72e409da2f652a1b10a"
   integrity sha1-Q2357RGeEiCYmdcuQJ2i9lKhsQo=
 
+atom@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.npmjs.org/atom/-/atom-1.4.1.tgz#436df9ed119e12209899d72e409da2f652a1b10a"
+  integrity sha512-FpdehYLT2I17Pk7jVjdr7gDbARljF/YzMPdaKqkXgB8hinM5rz+zdKnw4hvf/mLVVVezd4+xAsVvlL6mW6km+Q==
+
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -3361,8 +3504,8 @@ cosmiconfig@^6.0.0:
 
 cropperjs@^1.5.12:
   version "1.5.12"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/cropperjs/-/cropperjs-1.5.12.tgz#d9c0db2bfb8c0d769d51739e8f916bbc44e10f50"
-  integrity sha1-2cDbK/uMDXadUXOej5FrvEThD1A=
+  resolved "https://registry.npmjs.org/cropperjs/-/cropperjs-1.5.12.tgz#d9c0db2bfb8c0d769d51739e8f916bbc44e10f50"
+  integrity sha512-re7UdjE5UnwdrovyhNzZ6gathI4Rs3KGCBSc8HCIjUo5hO42CtzyblmWLj6QWVw7huHyDMfpKxhiO2II77nhDw==
 
 cross-env@^7.0.3:
   version "7.0.3"
@@ -7485,8 +7628,8 @@ raw-body@2.4.2:
 
 react-cropper@^2.1.8:
   version "2.1.8"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/react-cropper/-/react-cropper-2.1.8.tgz#bf35a7de65769f8ad357e8ae884e791fe3fe9212"
-  integrity sha1-vzWn3mV2n4rTV+iuiE55H+P+khI=
+  resolved "https://registry.npmjs.org/react-cropper/-/react-cropper-2.1.8.tgz#bf35a7de65769f8ad357e8ae884e791fe3fe9212"
+  integrity sha512-QEj6CE9et/gMRqpaKMgZQdBgtzLjjq+zj1pmHwtoWG6GqscDl4QpTwoEElWN2pieYxkwFaZa0lPiD2b9nwqLKQ==
   dependencies:
     cropperjs "^1.5.12"
 
@@ -7516,10 +7659,10 @@ react-fast-compare@^3.0.1:
 
 react-flip-move@^3.0.4:
   version "3.0.4"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/react-flip-move/-/react-flip-move-3.0.4.tgz#261f66101fbc305f9b7b28959c5cf8236413ca74"
-  integrity sha1-Jh9mEB+8MF+beyiVnFz4I2QTynQ=
+  resolved "https://registry.npmjs.org/react-flip-move/-/react-flip-move-3.0.4.tgz#261f66101fbc305f9b7b28959c5cf8236413ca74"
+  integrity sha512-HyUVv9g3t/BS7Yz9HgrtYSWyRNdR2F81nkj+C5iRY675AwlqCLB5JU9mnZWg0cdVz7IM4iquoyZx70vzZv3Z8Q==
 
-react-is@^16.13.1, react-is@^16.6.0, react-is@^16.7.0:
+react-is@^16.13.1, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=

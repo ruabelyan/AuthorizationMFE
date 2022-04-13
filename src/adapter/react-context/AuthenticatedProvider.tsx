@@ -38,7 +38,9 @@ export const AuthenticatedProvider: FC = ({ children }) => {
     oidcService.subscribeForUpdate(async (oidcUser) => {
       setOidcUser(oidcUser);
 
-      HttpService.setAccessToken(oidcUser.access_token);
+      if (oidcUser?.access_token) HttpService.setAccessToken(oidcUser.access_token);
+
+      HttpService.setLogoutCb(() => oidcService.logOut());
 
       if (!wasCalledGetUserBefore) {
         userService.getUser(oidcUser.id_token);
@@ -55,7 +57,13 @@ export const AuthenticatedProvider: FC = ({ children }) => {
       value={{
         oidcUser,
         user,
-        updateUserInfo: (updatedInfo: Partial<ParseIdTokenResponseModel>) => setUser({ ...user, ...updatedInfo })
+        updateUserInfo: (updatedInfo: Partial<ParseIdTokenResponseModel>) => {
+          const updatedUser = { ...user, ...updatedInfo };
+
+          userService.publish(updatedUser);
+
+          userService.user = updatedUser;
+        }
       }}>
       {children}
     </AuthenticatedContext.Provider>
