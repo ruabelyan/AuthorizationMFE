@@ -7,19 +7,16 @@ import { AuthenticatedContext } from './AuthenticatedContext';
 
 let wasCalledGetUserBefore = false;
 
+containerInstance.configure();
+
+const userService = containerInstance.diContainer.get<UserService>(DI_CONSTANTS.UserService);
+
 export const AuthenticatedProvider: FC = ({ children }) => {
   const [user, setUser] = useState<ParseIdTokenResponseModel>(null);
-  const [userService, setUserService] = useState<UserService>(null);
 
   const changeLoading = useLoading();
 
   useEffect(() => {
-    containerInstance.configure();
-
-    const userService = containerInstance.diContainer.get<UserService>(DI_CONSTANTS.UserService);
-
-    setUserService(userService);
-
     if (!wasCalledGetUserBefore) {
       changeLoading(true);
 
