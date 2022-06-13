@@ -1,6 +1,6 @@
 {
   "name": "@atom/authorization",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "main": "",
   "types": "./dist/atom-authorization.d.ts",
   "files": [
@@ -26,7 +26,6 @@
     "pre-push": "yarn format"
   },
   "devDependencies": {
-    "@atom/common": "^0.1.10",
     "@babel/core": "^7.14.6",
     "@babel/eslint-parser": "^7.14.7",
     "@babel/plugin-proposal-decorators": "^7.15.8",
@@ -81,8 +80,9 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@atom/design-system": "^0.1.0",
-    "@atom/user-management": "^0.1.0",
+    "@atom/common": "^0.1.12",
+    "@atom/design-system": "^3.1.0",
+    "@atom/user-management": "^0.2.0",
     "@automapper/classes": "^7.0.2",
     "@automapper/core": "^7.0.2",
     "@reduxjs/toolkit": "^1.6.1",
