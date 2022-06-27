@@ -44,6 +44,8 @@ export class UserService extends Subscribable<ParseIdTokenResponseModel> {
 
     const user = await authUseCase.parseIdToken(idToken);
 
+    HttpService.setProjectId(user.projectId);
+
     this.user = user;
 
     this.publish(user);
