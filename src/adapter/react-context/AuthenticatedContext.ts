@@ -7,4 +7,3 @@ export interface IAuthenticatedContext {
 }
 
 export const AuthenticatedContext = createContext<IAuthenticatedContext>(null);
- 
